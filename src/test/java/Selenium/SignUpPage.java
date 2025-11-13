@@ -6,17 +6,17 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SignUpPage {
 
-    static String userName = "Tam00ra";
-    static String userGmail = "mohamedTamer123@gmail.com";
-    static String userPassword = "Mohamed123";
-    static String userFirstName = "Mohamed";
-    static String userLastName = "Tamer";
-    static String userCompany = "ITI Army";
-    static String userAddress = "35st Mazen Ehab";
-    static String userState = "Cairo";
-    static String userCity = "El-Mukkatam";
-    static String userZipCode = "15715";
-    static String userMobileNumber= "01025829140";
+    private static String userName = "Tam00ra";
+    private static String userGmail = "mohamedTamer123@gmail.com";
+    private static String userPassword = "Mohamed123";
+    private static String userFirstName = "Mohamed";
+    private static String userLastName = "Tamer";
+    private static String userCompany = "ITI Army";
+    private static String userAddress = "35st Mazen Ehab";
+    private static String userState = "Cairo";
+    private static String userCity = "El-Mukkatam";
+    private static String userZipCode = "15715";
+    private static String userMobileNumber= "01025829140";
 
     public static void signUpScenario(WebDriver webDriver) throws InterruptedException {
         /*** Click Signup/Login ***/

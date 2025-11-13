@@ -19,4 +19,19 @@ public class MainLocator {
         SignUpPage.signUpScenario(webDriver);
 
     }
+    @Test
+    public void ValidLogin() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        ValidLogin.signUpScenario(webDriver);
+    }
+    @Test
+    public void InValidLoginEmail() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        InValidLogin.inValidGmailTest(webDriver);
+    }
+    @Test
+    public void InValidLoginPassword() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        InValidLogin.inValidPasswordTest(webDriver);
+    }
 }
