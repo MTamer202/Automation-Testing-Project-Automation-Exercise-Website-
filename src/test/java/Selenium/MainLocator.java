@@ -3,11 +3,16 @@ package Selenium;
 import Pages.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class MainLocator {
+
+    public final String loginUrlValue = "https://www.automationexercise.com/login";
+
     @Test
-    public void SignUpScenarios() throws InterruptedException {
+    public void SignUpScenario() throws InterruptedException {
         WebDriver webDriver =  BaseTest.WebOpen();
         HomePage.SignUpLogin(webDriver);
         SignUpLoginPage.SignUpValuePut(webDriver);
@@ -38,4 +43,13 @@ public class MainLocator {
         SignUpLoginPage.inValidPasswordTest(webDriver);
         HomePage.HomePage(webDriver);
     }
+    @Test
+    public void LogoutUser() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.LoginValuePut(webDriver);
+        HomePage.LogoutAccount(webDriver);
+        Assert.assertEquals(loginUrlValue,webDriver.getCurrentUrl());
+    }
+
 }

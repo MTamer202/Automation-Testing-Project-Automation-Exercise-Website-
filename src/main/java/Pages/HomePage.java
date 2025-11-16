@@ -9,6 +9,8 @@ public class HomePage {
     private static final String SignUpLoginButtonLocator = "//*[contains(text(),' Signup / Login')] ";
     private static final String deleteAccountButtonLocator = "//*[normalize-space(text())='Delete Account']";
     private static final String homePageButtonLocator = "//*[normalize-space(text())='Home']";
+    private static final String homePageLogoutButtonLocator = "//*[normalize-space(text())='Logout']";
+
     /***Methods***/
     public static void HomePage(WebDriver webDriver){
         By homeNavButton = By.xpath(homePageButtonLocator);
@@ -25,4 +27,10 @@ public class HomePage {
         webDriver.findElement(deleteAccountButton).click();
         Thread.sleep(1000);
     }
+    public static void LogoutAccount(WebDriver webDriver) throws InterruptedException {
+        By logoutButton = By.xpath(homePageLogoutButtonLocator);
+        webDriver.findElement(logoutButton).click();
+        Thread.sleep(1000);
+    }
+
 }
