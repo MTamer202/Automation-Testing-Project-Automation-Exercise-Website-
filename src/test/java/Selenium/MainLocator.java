@@ -1,7 +1,6 @@
 package Selenium;
 
 import Pages.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -50,6 +49,20 @@ public class MainLocator {
         SignUpLoginPage.LoginValuePut(webDriver);
         HomePage.LogoutAccount(webDriver);
         Assert.assertEquals(loginUrlValue,webDriver.getCurrentUrl());
+    }
+    @Test
+    public void RegisterWithExistingUserName() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.ExistingUsernameTest(webDriver);
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void ContactUsForm() throws InterruptedException {
+        WebDriver webDriver =  BaseTest.WebOpen();
+        HomePage.ContactUsPage(webDriver);
+        ContactUsPage.ContactUsPutingValues(webDriver);
+        ContactUsPage.ContactUsSecondPage(webDriver);
     }
 
 }

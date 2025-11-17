@@ -12,7 +12,6 @@ public class SignUpLoginPage {
     private static final String validPassword = "Mohamed123";
     private static String userInValidGmail = "mohamedTamer12@gmail.com";
     private static String userInvalidPassword = "Mohamed12345";
-    private static String expectedText = "Your email or password is incorrect!";
     /***Locators***/
     private static final String signUpUsernameLocator = "//input[@data-qa='signup-name']";
     private static final String signUpEmailLocator = "//input[@data-qa='signup-email']";
@@ -22,6 +21,7 @@ public class SignUpLoginPage {
     private static final String loginPasswordLocator = "//input[@type='password']";
     private static final String loginButtonLocator = "//button[normalize-space(text())='Login']";
     private static final String assertionIncorrectMessage ="//*[normalize-space(text())='Your email or password is incorrect!']";
+    private static final String assertionExistsMessage ="//*[normalize-space(text())='Email Address already exist!']";
 
 
 
@@ -74,6 +74,17 @@ public class SignUpLoginPage {
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains("incorrect"));
         Thread.sleep(1000);
+    }
+    public static void ExistingUsernameTest(WebDriver webDriver) throws InterruptedException {
+        By signUpTextInput = By.xpath(signUpUsernameLocator);
+        webDriver.findElement(signUpTextInput).sendKeys(userName);
+        By signUpEmail = By.xpath(signUpEmailLocator);
+        webDriver.findElement(signUpEmail).sendKeys(validEmail);
+        By signUpNavButton = By.xpath(signUpButtonLocator);
+        webDriver.findElement(signUpNavButton).click();
+        By message = By.xpath(assertionExistsMessage);
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertTrue(actualText.contains("Email Address already exist!"));
     }
 
     }
