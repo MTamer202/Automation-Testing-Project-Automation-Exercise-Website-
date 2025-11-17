@@ -13,6 +13,8 @@ public class HomePage {
     private static final String homePageProductsButtonLocator = "//*[normalize-space(text())='Products']";
     private static final String homePageCartButtonLocator = "//*[normalize-space(text())='Cart'] ";
     private static final String homePageContactUsButtonLocator = "//*[normalize-space(text())='Contact us'] ";
+    private static final String homePageTestCasesButtonLocator = "//a[normalize-space(text())='Test Cases']";
+
     /***Methods***/
     public static void HomePage(WebDriver webDriver){
         By homeNavButton = By.xpath(homePageButtonLocator);
@@ -49,5 +51,9 @@ public class HomePage {
         webDriver.findElement(contactUsButton).click();
         Thread.sleep(1000);
     }
-
+    public static void TestCasesPage(WebDriver webDriver) throws InterruptedException {
+        By TestCasesButton = By.xpath(homePageTestCasesButtonLocator);
+        webDriver.findElement(TestCasesButton).click();
+        Thread.sleep(1000);
+    }
 }

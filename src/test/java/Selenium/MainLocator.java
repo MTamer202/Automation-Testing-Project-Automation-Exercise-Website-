@@ -64,5 +64,12 @@ public class MainLocator {
         ContactUsPage.ContactUsPutingValues(webDriver);
         ContactUsPage.ContactUsSecondPage(webDriver);
     }
-
+    @Test
+    public void TestCases() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.TestCasesPage(webDriver);
+        TestCasesPage.TestCasesAssertion(webDriver);
+        Thread.sleep(1000);
+        HomePage.HomePage(webDriver);
+    }
 }
