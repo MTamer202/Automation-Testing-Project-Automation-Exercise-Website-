@@ -1,9 +1,17 @@
 package Selenium;
 
 import Pages.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 
 public class MainLocator {
@@ -72,4 +80,51 @@ public class MainLocator {
         Thread.sleep(1000);
         HomePage.HomePage(webDriver);
     }
+    @Test
+    public void ProductsVerify() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        ProductsPage.AllProductAssertion(webDriver);
+
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+
+        ProductsPage.ViewProduct(webDriver, "1");
+        ProductsPage.ProductAssertion(webDriver);
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void ProductSearch(){
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        ProductsPage.AllProductAssertion(webDriver);
+        ProductsPage.ProductSearch(webDriver);
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void SubscriptionInHomePage() {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.SubscriptionEmail(webDriver);
+    }
+    @Test
+    public void SubscriptionInCartPage() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.CartPage(webDriver);
+        CartPage.SubscriptionEmail(webDriver);
+    }
+    @Test
+    public void AddToCart(){
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        ProductsPage.AllProductAssertion(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        ProductsPage.ViewProduct(webDriver, "1");
+
+
+
+
+    }
+
+
 }
