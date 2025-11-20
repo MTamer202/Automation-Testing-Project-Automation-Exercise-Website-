@@ -8,10 +8,20 @@ public class ProductsPage {
     /***Locators***/
     private static final String allProductTextLocator = "//h2[normalize-space(text())='All Products']";
     private static final String productTextLocatorPart1 = "//a[@href = '/product_details/";
+    private static final String productAddToCartLocatorPart1 = "//a[@data-product-id=\"";
     private static final String productSearchBarLocator = "//input[@id = 'search_product']";
     private static final String productSearchButtonLocator = "//button[@id= 'submit_search']";
+    private static final String productContinueShopingLocator = "//button[normalize-space(text())='Continue Shopping']";
+    private static final String productViewCartLocator = "//u[normalize-space(text())='View Cart']";
     private static final String productSearchProductAssertionLocator = "//h2[normalize-space(text())='Rs. 500']";
+    private static final String productQuantityLocator = "//input[@id='quantity']";
+    private static final String viewProductAddToCartLocator = "//button[@class='btn btn-default cart']";
+    private static final String productQuantityAssertionLocatorPart1 = "//button[text()='";
+
+
+
     private static final String productMessagesAssertionLocator = "//*";
+
 
 
     /***Variables***/
@@ -51,9 +61,41 @@ public class ProductsPage {
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains(productSearchProductAssertion));
     }
+    public static void AddToCartProduct(WebDriver webDriver,String productNumber) throws InterruptedException {
+        By addToCartProductButton = By.xpath(productAddToCartLocatorPart1+productNumber+"\"]");
+        webDriver.findElement(addToCartProductButton).click();
+        Thread.sleep(1000);
+    }
 
+    public static void ContinueShopping(WebDriver webDriver) throws InterruptedException {
+        By continueShoppingButton = By.xpath(productContinueShopingLocator);
+        webDriver.findElement(continueShoppingButton).click();
+        Thread.sleep(1000);
+    }
 
+    public static void ViewCart(WebDriver webDriver) throws InterruptedException {
+        By viewCartProductButton = By.xpath(productViewCartLocator);
+        webDriver.findElement(viewCartProductButton).click();
+        Thread.sleep(1000);
+    }
 
+    public static void ChangeQuantity(WebDriver webDriver,String Quantity) throws InterruptedException {
+        By ProductQuantity = By.xpath(productQuantityLocator);
+        webDriver.findElement(ProductQuantity).clear();
+        webDriver.findElement(ProductQuantity).sendKeys(Quantity);
+        Thread.sleep(1000);
+    }
 
+    public static void ViewProductAddToCart(WebDriver webDriver) throws InterruptedException {
+        By ProductAddToCartQuantity = By.xpath(viewProductAddToCartLocator);
+        webDriver.findElement(ProductAddToCartQuantity).click();
+        Thread.sleep(1000);
+    }
+
+    public static void ProductQuantityAssertion(WebDriver webDriver,String quantity){
+        By message = By.xpath(productQuantityAssertionLocatorPart1+quantity+"']");
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertEquals(actualText, quantity);
+    }
 
 }

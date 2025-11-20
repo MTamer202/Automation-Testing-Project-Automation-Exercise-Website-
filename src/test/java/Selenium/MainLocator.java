@@ -1,10 +1,7 @@
 package Selenium;
 
 import Pages.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -113,18 +110,51 @@ public class MainLocator {
         CartPage.SubscriptionEmail(webDriver);
     }
     @Test
-    public void AddToCart(){
+    public void AddToCart() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        ProductsPage.AllProductAssertion(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        ProductsPage.AddToCartProduct(webDriver, "1");
+        ProductsPage.ContinueShopping(webDriver);
+        ProductsPage.AddToCartProduct(webDriver, "2");
+        ProductsPage.ViewCart(webDriver);
+    }
+    @Test
+    public void ProductQuantity() throws InterruptedException {
         WebDriver webDriver = BaseTest.WebOpen();
         HomePage.ProductPage(webDriver);
         ProductsPage.AllProductAssertion(webDriver);
         Actions actions = new Actions(webDriver);
         actions.scrollByAmount(0, 500).perform();
         ProductsPage.ViewProduct(webDriver, "1");
-
-
-
-
+        ProductsPage.ChangeQuantity(webDriver,"4");
+        ProductsPage.ViewProductAddToCart(webDriver);
+        ProductsPage.ViewCart(webDriver);
+        ProductsPage.ProductQuantityAssertion(webDriver,"4");
     }
-
+    @Test
+    public void PlaceOrder() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartCheckout(webDriver);
+        CartPage.CartCheckoutLogin(webDriver);
+        SignUpLoginPage.SignUpValuePut(webDriver);
+        SignUpPage.signUpScenario(webDriver);
+        SignUpConfirmation.RegistrationConfirmation(webDriver);
+        HomePage.CartPage(webDriver);
+        CartPage.CartCheckout(webDriver);
+        PaymentPage.WriteComment(webDriver);
+        PaymentPage.PlaceOrder(webDriver);
+        PaymentPage.PaymentCardValues(webDriver);
+        PaymentPage.PaymentConfirmation(webDriver);
+        HomePage.DeleteAccount(webDriver);
+        DeleteConfirmation.DeleteAccountConfirmation(webDriver);
+    }
 
 }

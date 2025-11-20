@@ -19,6 +19,7 @@ public class HomePage {
     private static final String homePageSubscriptionEmailLocator = "//input[@id='susbscribe_email']";
     private static final String homePageSubscriptionArrowButtonLocator = "//button[@id='subscribe']";
     private static final String homePageSubscriptionSuccessfullyAssertionLocator = "//*[normalize-space(text())='You have been successfully subscribed!']";
+    private static final String productAddToCartLocatorPart1 = "//a[@data-product-id=\"";
 
 
 
@@ -76,6 +77,11 @@ public class HomePage {
         By SuccessfullMessage = By.xpath(homePageSubscriptionSuccessfullyAssertionLocator);
         String Message = webDriver.findElement(SuccessfullMessage).getText();
         Assert.assertTrue(Message.contains("successfully subscribed"));
+    }
+    public static void AddToCartProduct(WebDriver webDriver,String productNumber) throws InterruptedException {
+        By addToCartProductButton = By.xpath(productAddToCartLocatorPart1+productNumber+"\"]");
+        webDriver.findElement(addToCartProductButton).click();
+        Thread.sleep(1000);
     }
 
 

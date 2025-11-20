@@ -10,6 +10,8 @@ public class CartPage {
     private static final String homePageSubscriptionEmailLocator = "//input[@id='susbscribe_email']";
     private static final String homePageSubscriptionArrowButtonLocator = "//button[@id='subscribe']";
     private static final String homePageSubscriptionSuccessfullyAssertionLocator = "//*[normalize-space(text())='You have been successfully subscribed!']";
+    private static final String cartCheckoutButtonLocator = "//*[normalize-space(text())='Proceed To Checkout']";
+    private static final String cartRegisterSignupButtonLocator = "//*[normalize-space(text())='Register / Login']";
 
 
     public static void SubscriptionEmail(WebDriver webDriver){
@@ -24,4 +26,14 @@ public class CartPage {
         String Message = webDriver.findElement(SuccessfullMessage).getText();
         Assert.assertTrue(Message.contains("successfully subscribed"));
     }
+    public static void CartCheckout(WebDriver webDriver){
+        By checkoutButton= By.xpath(cartCheckoutButtonLocator);
+        webDriver.findElement(checkoutButton).click();
+
+    }
+    public static void CartCheckoutLogin(WebDriver webDriver){
+        By loginButton= By.xpath(cartRegisterSignupButtonLocator);
+        webDriver.findElement(loginButton).click();
+    }
+
 }
