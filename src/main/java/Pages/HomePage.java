@@ -20,10 +20,14 @@ public class HomePage {
     private static final String homePageSubscriptionArrowButtonLocator = "//button[@id='subscribe']";
     private static final String homePageSubscriptionSuccessfullyAssertionLocator = "//*[normalize-space(text())='You have been successfully subscribed!']";
     private static final String productAddToCartLocatorPart1 = "//a[@data-product-id=\"";
+    private static final String homePageCategoryAssertionLocator = "/html/body/section[2]/div/div/div[1]/div/h2";
+    private static final String homePageCategoryWomenLocator = "//*[@href='#Women']";
+    private static final String homePageCategoryWomenDressLocator = "//*[@href='/category_products/1']";
+    private static final String homePageCategoryWomenDressAssertionLocator = "//h2[@class ='title text-center']";
+    private static final String homePageCategoryMenLocator = "//*[@href='#Men']";
+    private static final String homePageCategoryMenTshirtLocator = "//*[@href='/category_products/3']";
+    private static final String homePageCategoryMenTshirtAssertionLocator = "//h2[@class ='title text-center']";
 
-
-
-    //h2[(text())='Subscription']
     /***Methods***/
     public static void HomePage(WebDriver webDriver){
         By homeNavButton = By.xpath(homePageButtonLocator);
@@ -83,6 +87,44 @@ public class HomePage {
         webDriver.findElement(addToCartProductButton).click();
         Thread.sleep(1000);
     }
+    public static void HomePageCategoryAssertion(WebDriver webDriver){
+        By message = By.xpath(homePageCategoryAssertionLocator);
+        String categoryAssertion = webDriver.findElement(message).getText();
+        Assert.assertTrue(categoryAssertion.contains("CATEGORY"));
+    }
+    public static void HomePageCategoryWomen(WebDriver webDriver) {
+        By womenButton = By.xpath(homePageCategoryWomenLocator);
+        webDriver.findElement(womenButton).click();
+    }
+    public static void HomePageCategoryWomenDress(WebDriver webDriver) {
+        By dressButton = By.xpath(homePageCategoryWomenDressLocator);
+        webDriver.findElement(dressButton).click();
+    }
+    public static void HomePageCategoryWomenDressAssertion(WebDriver webDriver) {
+        By message = By.xpath(homePageCategoryWomenDressAssertionLocator);
+        String categoryAssertion = webDriver.findElement(message).getText();
+        Assert.assertTrue(categoryAssertion.contains("WOMEN -"));
+    }
+    public static void HomePageCategoryMen(WebDriver webDriver) {
+        By menButton = By.xpath(homePageCategoryMenLocator);
+        webDriver.findElement(menButton).click();
+    }
+    public static void HomePageCategoryMenTshirt(WebDriver webDriver) {
+        By tshirtButton = By.xpath(homePageCategoryMenTshirtLocator);
+        webDriver.findElement(tshirtButton).click();
+    }
+    public static void HomePageCategoryMenTshirtAssertion(WebDriver webDriver) {
+        By message = By.xpath(homePageCategoryMenTshirtAssertionLocator);
+        String categoryAssertion = webDriver.findElement(message).getText();
+        Assert.assertTrue(categoryAssertion.contains("MEN"));
+    }
+
+
 
 
 }
+
+
+
+
+

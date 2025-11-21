@@ -2,7 +2,10 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.List;
 
 public class ProductsPage {
     /***Locators***/
@@ -17,6 +20,8 @@ public class ProductsPage {
     private static final String productQuantityLocator = "//input[@id='quantity']";
     private static final String viewProductAddToCartLocator = "//button[@class='btn btn-default cart']";
     private static final String productQuantityAssertionLocatorPart1 = "//button[text()='";
+    private static final String productBrandsAssertionLocator = "//h2[normalize-space(text())='Brands']";
+    private static final String productBrandsChooseLocatorPart1 = "(//ul[@class='nav nav-pills nav-stacked']/li)[";
 
 
 
@@ -97,5 +102,21 @@ public class ProductsPage {
         String actualText = webDriver.findElement(message).getText();
         Assert.assertEquals(actualText, quantity);
     }
+
+    public static void ProductBrandsAssertion(WebDriver webDriver){
+        By message = By.xpath(productBrandsAssertionLocator);
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertTrue(actualText.equalsIgnoreCase("Brands"));
+    }
+
+    public static void ProductChooseBrand(WebDriver webDriver,String choice) throws InterruptedException {
+        By ProductAddToCartQuantity = By.xpath(productBrandsChooseLocatorPart1+choice+"]");
+        webDriver.findElement(ProductAddToCartQuantity).click();
+        Thread.sleep(1000);
+    }
+
+
+
+
 
 }

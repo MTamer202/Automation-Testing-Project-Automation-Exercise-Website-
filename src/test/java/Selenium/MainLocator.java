@@ -135,7 +135,7 @@ public class MainLocator {
         ProductsPage.ProductQuantityAssertion(webDriver,"4");
     }
     @Test
-    public void PlaceOrder() throws InterruptedException {
+    public void PlaceOrderWhileRegister() throws InterruptedException {
         WebDriver webDriver = BaseTest.WebOpen();
         HomePage.ProductPage(webDriver);
         Actions actions = new Actions(webDriver);
@@ -156,5 +156,85 @@ public class MainLocator {
         HomePage.DeleteAccount(webDriver);
         DeleteConfirmation.DeleteAccountConfirmation(webDriver);
     }
+    @Test
+    public void PlaceOrderAfterRegister() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.SignUpValuePut(webDriver);
+        SignUpPage.signUpScenario(webDriver);
+        SignUpConfirmation.RegistrationConfirmation(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ContinueShopping(webDriver);
+        HomePage.AddToCartProduct(webDriver,"2");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartCheckout(webDriver);
+        PaymentPage.WriteComment(webDriver);
+        PaymentPage.PlaceOrder(webDriver);
+        PaymentPage.PaymentCardValues(webDriver);
+        PaymentPage.PaymentConfirmation(webDriver);
+        HomePage.DeleteAccount(webDriver);
+        DeleteConfirmation.DeleteAccountConfirmation(webDriver);
+    }
+    @Test
+    public void PlaceOrderAfterLogin() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.LoginValuePut(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ContinueShopping(webDriver);
+        HomePage.AddToCartProduct(webDriver,"2");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartCheckout(webDriver);
+        PaymentPage.WriteComment(webDriver);
+        PaymentPage.PlaceOrder(webDriver);
+        PaymentPage.PaymentCardValues(webDriver);
+        PaymentPage.PaymentConfirmation(webDriver);
+        HomePage.DeleteAccount(webDriver);
+        DeleteConfirmation.DeleteAccountConfirmation(webDriver);
+    }
+    @Test
+    public void RemoveOrderFromCart() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ContinueShopping(webDriver);
+        HomePage.AddToCartProduct(webDriver,"2");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartRemoveItem(webDriver,"1");
+        CartPage.CartRemoveItem(webDriver,"2");
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void CategoryNavigation(){    /*Assertion Problem*/
+        WebDriver webDriver = BaseTest.WebOpen();
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.HomePageCategoryAssertion(webDriver);
+        HomePage.HomePageCategoryWomen(webDriver);
+        HomePage.HomePageCategoryWomenDress(webDriver);
+        HomePage.HomePageCategoryWomenDressAssertion(webDriver);
+        HomePage.HomePageCategoryMen(webDriver);
+        HomePage.HomePageCategoryMenTshirt(webDriver);
+        HomePage.HomePageCategoryMenTshirtAssertion(webDriver);
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void BrandNavigation() throws InterruptedException {    /*Assertion Problem*/
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        ProductsPage.ProductBrandsAssertion(webDriver);
+        ProductsPage.ProductChooseBrand(webDriver,"1");
+        ProductsPage.ProductChooseBrand(webDriver,"3");
+        HomePage.HomePage(webDriver);
+    }
+
+
 
 }
