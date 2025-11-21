@@ -2,7 +2,13 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class HomePage {
 
@@ -27,6 +33,8 @@ public class HomePage {
     private static final String homePageCategoryMenLocator = "//*[@href='#Men']";
     private static final String homePageCategoryMenTshirtLocator = "//*[@href='/category_products/3']";
     private static final String homePageCategoryMenTshirtAssertionLocator = "//h2[@class ='title text-center']";
+    private static final String homePageRecommendedItemsAssertionLocator = "//*[normalize-space(text())='recommended items']";
+    private static final String homePageRecommendedItemsLocator = "//div[@class='recommended_items']/div/div/div/div/div/div/div/a";
 
     /***Methods***/
     public static void HomePage(WebDriver webDriver){
@@ -118,7 +126,20 @@ public class HomePage {
         String categoryAssertion = webDriver.findElement(message).getText();
         Assert.assertTrue(categoryAssertion.contains("MEN"));
     }
+    public static void HomePageRecommendedItemsAssertion(WebDriver webDriver) {
+        By message = By.xpath(homePageRecommendedItemsAssertionLocator);
+        String categoryAssertion = webDriver.findElement(message).getText();
+        Assert.assertTrue(categoryAssertion.contains("RECOMMENDED"));
+        WebElement element = webDriver.findElement(By.xpath(homePageRecommendedItemsAssertionLocator));
+        Actions actions = new Actions(webDriver);
+        actions.moveToElement(element).perform();
+    }
+    public static void HomePageCategoryRecommendedItems(WebDriver webDriver) {
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(homePageRecommendedItemsLocator)));
+        product.click();
 
+    }
 
 
 

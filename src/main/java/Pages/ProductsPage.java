@@ -3,8 +3,11 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ProductsPage {
@@ -22,7 +25,12 @@ public class ProductsPage {
     private static final String productQuantityAssertionLocatorPart1 = "//button[text()='";
     private static final String productBrandsAssertionLocator = "//h2[normalize-space(text())='Brands']";
     private static final String productBrandsChooseLocatorPart1 = "(//ul[@class='nav nav-pills nav-stacked']/li)[";
-
+    private static final String productWriteReviewAssertionLocator = "//*[normalize-space(text())='Write Your Review']";
+    private static final String productReviewNameLocator= "//input[@id='name']";
+    private static final String productReviewEmailLocator = "//input[@id='email']";
+    private static final String productWriteReviewContentLocator = "//textarea[@id='review']";
+    private static final String productWriteReviewSubmitLocator = "//button[@id='button-review']";
+    private static final String productWriteReviewSubmitionAssertionLocator = "//span[normalize-space(text())='Thank you for your review.']";
 
 
     private static final String productMessagesAssertionLocator = "//*";
@@ -34,8 +42,12 @@ public class ProductsPage {
    private static final String availabilityMessage = "Availability";
    private static final String conditionMessage = "Condition";
    private static final String brandMessage = "Brand";
-   private static final String searchData = "Blue top";
-   private static final String productSearchProductAssertion = "Rs. 500";
+    private static final String searchData = "Blue top";
+    private static final String productSearchProductAssertion = "Rs. 500";
+    private static final String reviewName = "Mohamed Tamer";
+    private static final String reviewEmail = "Mohamed1234@gmail.com";
+    private static final String reviewContent = "Its very good :)";
+
 
 
 
@@ -79,8 +91,10 @@ public class ProductsPage {
     }
 
     public static void ViewCart(WebDriver webDriver) throws InterruptedException {
-        By viewCartProductButton = By.xpath(productViewCartLocator);
-        webDriver.findElement(viewCartProductButton).click();
+
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebElement cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(productViewCartLocator)));
+        cart.click();
         Thread.sleep(1000);
     }
 
@@ -114,6 +128,25 @@ public class ProductsPage {
         webDriver.findElement(ProductAddToCartQuantity).click();
         Thread.sleep(1000);
     }
+
+    public static void ProductWriteReviewAssertion(WebDriver webDriver){
+        By message = By.xpath(productWriteReviewAssertionLocator);
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertTrue(actualText.contains("Write Your Review"));
+    }
+        public static void ProductWriteReview(WebDriver webDriver ){
+            By reviewNameContent = By.xpath(productReviewNameLocator);
+            webDriver.findElement(reviewNameContent).sendKeys(reviewName);
+            By reviewEmailContent = By.xpath(productReviewEmailLocator);
+            webDriver.findElement(reviewEmailContent).sendKeys(reviewEmail);
+            By reviewContentContent = By.xpath(productWriteReviewContentLocator);
+            webDriver.findElement(reviewContentContent).sendKeys(reviewContent);
+            By submitButton = By.xpath(productWriteReviewSubmitLocator);
+            webDriver.findElement(submitButton).sendKeys(reviewContent);
+            By message = By.xpath(productWriteReviewSubmitionAssertionLocator);
+            String actualText = webDriver.findElement(message).getText();
+            Assert.assertTrue(actualText.contains("Thank you"));
+        }
 
 
 

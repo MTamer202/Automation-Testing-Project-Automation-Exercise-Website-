@@ -234,6 +234,42 @@ public class MainLocator {
         ProductsPage.ProductChooseBrand(webDriver,"3");
         HomePage.HomePage(webDriver);
     }
+    @Test
+    public void SearchAndVerifyAfterLogin() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        ProductsPage.AllProductAssertion(webDriver);
+        ProductsPage.ProductSearch(webDriver);
+        ProductsPage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ViewCart(webDriver);
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.LoginValuePut(webDriver);
+        HomePage.CartPage(webDriver);
+    }
+    @Test
+    public void ProductReview() throws InterruptedException {    /*Assertion Problem*/
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        ProductsPage.ViewProduct(webDriver,"1");
+        ProductsPage.ProductAssertion(webDriver);
+        ProductsPage.ProductWriteReview(webDriver);
+        HomePage.HomePage(webDriver);
+    }
+    @Test
+    public void RecommendedItems() throws InterruptedException {    /*Assertion Problem*/
+        WebDriver webDriver = BaseTest.WebOpen();
+
+        HomePage.HomePageRecommendedItemsAssertion(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        
+        HomePage.HomePageCategoryRecommendedItems(webDriver);
+        ProductsPage.ViewCart(webDriver);
+
+    }
+
 
 
 
