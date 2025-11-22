@@ -13,6 +13,9 @@ public class CartPage {
     private static final String cartCheckoutButtonLocator = "//*[normalize-space(text())='Proceed To Checkout']";
     private static final String cartRegisterSignupButtonLocator = "//*[normalize-space(text())='Register / Login']";
     private static final String cartRemoveItemsButtonLocator = "//a[@data-product-id='";
+    private static final String cartDeliveryAddressLocator = "//ul[@id = 'address_delivery']";
+    private static final String cartBillingAddressLocator = "//ul[@id = 'address_invoice']";
+
 
     public static void SubscriptionEmail(WebDriver webDriver){
         By message = By.xpath(homePageSubscriptionAssertionLocator);
@@ -35,10 +38,20 @@ public class CartPage {
         By loginButton= By.xpath(cartRegisterSignupButtonLocator);
         webDriver.findElement(loginButton).click();
     }
-
     public static void CartRemoveItem(WebDriver webDriver,String ProductID){
         By removeButton= By.xpath(cartRemoveItemsButtonLocator+ProductID+"']");
         webDriver.findElement(removeButton).click();
     }
+    public static void CartDeliveryAddressVerify(WebDriver webDriver,String address){
+        By message = By.xpath(cartDeliveryAddressLocator);
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertTrue(actualText.contains(address));
+    }
+    public static void CartBillingAddressVerify(WebDriver webDriver,String address){
+        By message = By.xpath(cartBillingAddressLocator);
+        String actualText = webDriver.findElement(message).getText();
+        Assert.assertTrue(actualText.contains(address));
+    }
+
 
 }

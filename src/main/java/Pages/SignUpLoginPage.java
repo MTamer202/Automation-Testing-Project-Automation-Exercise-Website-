@@ -7,7 +7,7 @@ import org.testng.Assert;
 public class SignUpLoginPage {
     /***Variables***/
     private static final String userName = "Tam00ra";
-    private static final String userGmail = "mohamedTamer1234@gmail.com";
+    private static final String userGmail = "mohamedTamer123@gmail.com";
     private static final String validEmail =  "mohamedTamer1234@gmail.com";
     private static final String validPassword = "Mohamed123";
     private static String userInValidGmail = "mohamedTamer12@gmail.com";

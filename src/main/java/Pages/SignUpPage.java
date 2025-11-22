@@ -73,5 +73,8 @@ public class SignUpPage {
         webDriver.findElement(signUpSubmitButton).click();
         Thread.sleep(1000);
     }
+    public static String GetUserAddress(WebDriver webDriver){
+        return userAddress;
+    }
 
 }

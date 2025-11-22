@@ -258,17 +258,60 @@ public class MainLocator {
         HomePage.HomePage(webDriver);
     }
     @Test
-    public void RecommendedItems() throws InterruptedException {    /*Assertion Problem*/
+    public void RecommendedItems() throws InterruptedException {
         WebDriver webDriver = BaseTest.WebOpen();
 
         HomePage.HomePageRecommendedItemsAssertion(webDriver);
         Actions actions = new Actions(webDriver);
         actions.scrollByAmount(0, 500).perform();
-        
+
         HomePage.HomePageCategoryRecommendedItems(webDriver);
         ProductsPage.ViewCart(webDriver);
-
     }
+    @Test
+    public void AddressVerifyInCheckout() throws InterruptedException {    /*Assertion Problem*/
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.SignUpLogin(webDriver);
+        SignUpLoginPage.SignUpValuePut(webDriver);
+        SignUpPage.signUpScenario(webDriver);
+        SignUpConfirmation.RegistrationConfirmation(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartCheckout(webDriver);
+        CartPage.CartDeliveryAddressVerify(webDriver,SignUpPage.GetUserAddress(webDriver));
+        CartPage.CartBillingAddressVerify(webDriver,SignUpPage.GetUserAddress(webDriver));
+        HomePage.DeleteAccount(webDriver);
+        DeleteConfirmation.DeleteAccountConfirmation(webDriver);
+    }
+    @Test
+    public void DownloadInvoiceAfterPurchase() throws InterruptedException {
+        WebDriver webDriver = BaseTest.WebOpen();
+        HomePage.ProductPage(webDriver);
+        Actions actions = new Actions(webDriver);
+        actions.scrollByAmount(0, 500).perform();
+        HomePage.AddToCartProduct(webDriver,"1");
+        ProductsPage.ViewCart(webDriver);
+        CartPage.CartCheckout(webDriver);
+        CartPage.CartCheckoutLogin(webDriver);
+        SignUpLoginPage.SignUpValuePut(webDriver);
+        SignUpPage.signUpScenario(webDriver);
+        SignUpConfirmation.RegistrationConfirmation(webDriver);
+        HomePage.CartPage(webDriver);
+        CartPage.CartCheckout(webDriver);
+        PaymentPage.WriteComment(webDriver);
+        PaymentPage.PlaceOrder(webDriver);
+        PaymentPage.PaymentCardValues(webDriver);
+        PaymentPage.PaymentConfirmation(webDriver);
+        PaymentPage.PaymentDownloadInvoice(webDriver);
+        PaymentPage.PaymentContinue(webDriver);
+        HomePage.DeleteAccount(webDriver);
+        DeleteConfirmation.DeleteAccountConfirmation(webDriver);
+    }
+
+
+
 
 
 
