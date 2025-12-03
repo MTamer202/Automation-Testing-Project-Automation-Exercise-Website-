@@ -1,11 +1,13 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utiles.LogsUtils;
 
 import java.time.Duration;
 import java.util.List;
@@ -52,23 +54,29 @@ public class ProductsPage {
 
 
 
-
+    @Step("Assertion that we are in Products Page")
     public static void AllProductAssertion(WebDriver webDriver) {
         By message = By.xpath(allProductTextLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains(allProductText));
+        LogsUtils.info("All Products are here");
+
     }
+    @Step("click on View Product of number: {productNumber}")
     public static void ViewProduct(WebDriver webDriver,String productNumber) throws InterruptedException {
         By viewProductButton = By.xpath(productTextLocatorPart1+productNumber+"']");
         webDriver.findElement(viewProductButton).click();
         Thread.sleep(1000);
+        LogsUtils.info("Product with number:"+productNumber+" is found");
     }
+    @Step("Assert on a Product has the features of Availability,Condition and Brand")
     public static void ProductAssertion(WebDriver webDriver){
         By message = By.xpath(productMessagesAssertionLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains(availabilityMessage)&&actualText.contains(conditionMessage)&&actualText.contains(brandMessage));
+        LogsUtils.info("The Product has the features of Availability,Condition and Brand");
     }
-
+    @Step("Write In the Search Bar the Product name: {searchData}")
     public static void ProductSearch(WebDriver webDriver){
         By searchBarText = By.xpath(productSearchBarLocator);
         webDriver.findElement(searchBarText).sendKeys(searchData);
@@ -77,64 +85,74 @@ public class ProductsPage {
         By message = By.xpath(productSearchProductAssertionLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains(productSearchProductAssertion));
+        LogsUtils.info("The Product "+searchData+" is found");
     }
+    @Step("Add the Product with number {productNumber} To Cart")
     public static void AddToCartProduct(WebDriver webDriver,String productNumber) throws InterruptedException {
         By addToCartProductButton = By.xpath(productAddToCartLocatorPart1+productNumber+"\"]");
         webDriver.findElement(addToCartProductButton).click();
+        LogsUtils.info("Product with number "+productNumber+"is added to cart");
         Thread.sleep(1000);
     }
-
+    @Step("Click on Continue Shopping")
     public static void ContinueShopping(WebDriver webDriver) throws InterruptedException {
         By continueShoppingButton = By.xpath(productContinueShopingLocator);
         webDriver.findElement(continueShoppingButton).click();
+        LogsUtils.info("Continue Shopping clicked");
         Thread.sleep(1000);
     }
-
+    @Step("Click on View Cart")
     public static void ViewCart(WebDriver webDriver) throws InterruptedException {
-
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         WebElement cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(productViewCartLocator)));
         cart.click();
+        LogsUtils.info("Cart is opened");
         Thread.sleep(1000);
     }
-
+    @Step("Add a quantity for the Product (Quantity = {Quantity})")
     public static void ChangeQuantity(WebDriver webDriver,String Quantity) throws InterruptedException {
         By ProductQuantity = By.xpath(productQuantityLocator);
         webDriver.findElement(ProductQuantity).clear();
         webDriver.findElement(ProductQuantity).sendKeys(Quantity);
+        LogsUtils.info(Quantity+" is added to the Product");
         Thread.sleep(1000);
     }
-
+    @Step("Click on Add To Cart From View Product")
     public static void ViewProductAddToCart(WebDriver webDriver) throws InterruptedException {
         By ProductAddToCartQuantity = By.xpath(viewProductAddToCartLocator);
         webDriver.findElement(ProductAddToCartQuantity).click();
+        LogsUtils.info("Product was Added to cart");
         Thread.sleep(1000);
     }
-
+    @Step("Assertion on the Quantity of the Product to be equal {quantity}")
     public static void ProductQuantityAssertion(WebDriver webDriver,String quantity){
         By message = By.xpath(productQuantityAssertionLocatorPart1+quantity+"']");
         String actualText = webDriver.findElement(message).getText();
         Assert.assertEquals(actualText, quantity);
+        LogsUtils.info("Product's Quantity is = "+quantity+" = the same value we put");
     }
-
+    @Step("Assertion on the Brand of the Product")
     public static void ProductBrandsAssertion(WebDriver webDriver){
         By message = By.xpath(productBrandsAssertionLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.equalsIgnoreCase("Brands"));
+        LogsUtils.info("There is a Brand in the Product");
     }
-
+    @Step("Choose the Brand of the Product: {choice}")
     public static void ProductChooseBrand(WebDriver webDriver,String choice) throws InterruptedException {
         By ProductAddToCartQuantity = By.xpath(productBrandsChooseLocatorPart1+choice+"]");
         webDriver.findElement(ProductAddToCartQuantity).click();
+        LogsUtils.info("the brand "+choice+" is chosen");
         Thread.sleep(1000);
     }
-
+    @Step("assertion on review for the product")
     public static void ProductWriteReviewAssertion(WebDriver webDriver){
         By message = By.xpath(productWriteReviewAssertionLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains("Write Your Review"));
     }
-        public static void ProductWriteReview(WebDriver webDriver ){
+    @Step("Writing a review for the product")
+    public static void ProductWriteReview(WebDriver webDriver){
             By reviewNameContent = By.xpath(productReviewNameLocator);
             webDriver.findElement(reviewNameContent).sendKeys(reviewName);
             By reviewEmailContent = By.xpath(productReviewEmailLocator);
@@ -146,7 +164,9 @@ public class ProductsPage {
             By message = By.xpath(productWriteReviewSubmitionAssertionLocator);
             String actualText = webDriver.findElement(message).getText();
             Assert.assertTrue(actualText.contains("Thank you"));
-        }
+            LogsUtils.info("the review is written successfully");
+
+    }
 
 
 

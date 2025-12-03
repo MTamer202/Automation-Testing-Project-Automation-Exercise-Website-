@@ -1,10 +1,12 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import utiles.LogsUtils;
 
 public class ContactUsPage {
     /***Locators***/
@@ -25,7 +27,7 @@ public class ContactUsPage {
     private static final String filePath = "E:\\study\\ITI content\\automation\\Graduation_Project\\Me.pdf";
     private static final String assertionMessage = "Success! Your details have been submitted successfully.";
 
-
+    @Step("Putting the Values in Contact us Page")
     public static void ContactUsPutingValues(WebDriver webDriver) throws InterruptedException {
         By getInTouchName = By.xpath(getInTouchNameLocator);
         webDriver.findElement(getInTouchName).sendKeys(name);
@@ -42,16 +44,22 @@ public class ContactUsPage {
         By contactUsSubmitButton = By.xpath(getInTouchSubmitButtonLocator);
         webDriver.findElement(contactUsSubmitButton).click();
         Thread.sleep(1000);
-
+        LogsUtils.info("Picture was Putted Successfully ");
         Alert alert = webDriver.switchTo().alert();
         alert.accept();
+        LogsUtils.info("Contact us successfully done");
+
+
 
     }
+    @Step("Contact Us Second Page entry")
     public static void ContactUsSecondPage(WebDriver webDriver) throws InterruptedException {
         By message = By.xpath(secondPagemessageLocator);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains(assertionMessage));
         Thread.sleep(1000);
+        LogsUtils.info("Assert on a Successfully submit");
+
         By contactUsHomeButton = By.xpath(secondPageHomeButtonLocator);
         webDriver.findElement(contactUsHomeButton).click();
     }

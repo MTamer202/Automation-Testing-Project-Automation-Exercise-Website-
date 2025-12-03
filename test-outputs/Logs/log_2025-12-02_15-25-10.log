@@ -1,0 +1,10 @@
+[WARN] - [02-12-2025 15:25:10] [main] [utiles.FilesUtils] - Directory does not exists: test-outputs\allure-results
+
+[WARN] - [02-12-2025 15:25:10] [main] [utiles.FilesUtils] - Failed to list files in ittest-outputs\allure-results
+
+[INFO] - [02-12-2025 15:25:10] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [02-12-2025 15:25:15] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 15:25:25] [main] [Selenium.MainLocator] - Login Successful
+

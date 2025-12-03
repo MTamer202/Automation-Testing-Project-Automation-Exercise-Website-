@@ -1,11 +1,13 @@
 package Pages;
 
 import com.google.j2objc.annotations.Weak;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import utiles.LogsUtils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -25,22 +27,20 @@ public class PaymentPage {
     private static final String paymentDownloadInvoiceButtonLocator = "//a[normalize-space(text())='Download Invoice']";
     private static final String paymentContinueButtonLocator = "//a[normalize-space(text())='Continue']";
 
-
-
-
-
-
     /***Variables***/
     private static final String comment = "Need Order ASAP";
 
+    @Step("Write Comment In Payment Page")
     public static void WriteComment(WebDriver webDriver){
         By message= By.xpath(messageCommentLocator);
         webDriver.findElement(message).sendKeys(comment);
     }
+    @Step("Click on Place Order in Payment Page")
     public static void PlaceOrder(WebDriver webDriver){
         By PlaceOrderButton= By.xpath(placeOrderButtonLocator);
         webDriver.findElement(PlaceOrderButton).click();
     }
+    @Step("Place The Payment Methods in the page")
     public static void PaymentCardValues(WebDriver webDriver) throws InterruptedException {
         By cardName = By.xpath(nameOnCardLocator);
         webDriver.findElement(cardName).sendKeys("Mohamed Tamer");
@@ -56,17 +56,22 @@ public class PaymentPage {
         actions.scrollByAmount(0, 500).perform();
         By submitPayment = By.xpath(paymentButtonLocator);
         webDriver.findElement(submitPayment).click();
+        LogsUtils.info("Payment Method done ");
     }
+    @Step("Assertion on Payment Confirmation")
     public static void PaymentConfirmation(WebDriver webDriver) throws InterruptedException {
     By message = By.xpath(paymentMessageAssertionLocator);
     String actualText = webDriver.findElement(message).getText();
     Assert.assertTrue(actualText.contains("confirmed"));
+    LogsUtils.info("Assertion on Confirmation");
     Thread.sleep(1000);
 }
+    @Step("Download InVoice")
     public static void PaymentDownloadInvoice(WebDriver webDriver) throws InterruptedException {
         By DownloadInvoiceButton= By.xpath(paymentDownloadInvoiceButtonLocator);
         webDriver.findElement(DownloadInvoiceButton).click();
-/*Download Check*/
+        LogsUtils.info("Invoice Downloading");
+        /*Download Check*/
         String downloadDir = System.getProperty("user.dir") + "/downloads";
         File dir = new File(downloadDir);
         long end = System.currentTimeMillis() + 3000;
@@ -85,11 +90,14 @@ public class PaymentPage {
             if (downloadedFile != null) break;
             Thread.sleep(500);
         }
+        LogsUtils.info("Invoice Downloaded");
 
-}
+    }
+    @Step("Continue Payment")
     public static void PaymentContinue(WebDriver webDriver){
         By PlaceOrderButton= By.xpath(paymentContinueButtonLocator);
         webDriver.findElement(PlaceOrderButton).click();
+        LogsUtils.info("pressed on Continue Payment");
     }
 
 }

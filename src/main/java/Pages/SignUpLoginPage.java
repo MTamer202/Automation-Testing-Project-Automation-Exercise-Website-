@@ -1,8 +1,10 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import utiles.LogsUtils;
 
 public class SignUpLoginPage {
     /***Variables***/
@@ -25,7 +27,7 @@ public class SignUpLoginPage {
 
 
 
-
+    @Step("Signup Value Put to register")
     public static void SignUpValuePut(WebDriver webDriver) throws InterruptedException {
         /***  Signup/Login Page   ***/
         By signUpTextInput = By.xpath(signUpUsernameLocator);
@@ -34,9 +36,10 @@ public class SignUpLoginPage {
         webDriver.findElement(signUpEmail).sendKeys(userGmail);
         By signUpNavButton = By.xpath(signUpButtonLocator);
         webDriver.findElement(signUpNavButton).click();
+        LogsUtils.info("signUp value was Put and signUp Button was clicked");
         Thread.sleep(1000);
     }
-
+    @Step("Login Value Put to register")
     public static void LoginValuePut(WebDriver webDriver) throws InterruptedException {
         /***  Signup/Login Page   ***/
         By loginTextInput = By.xpath(loginEmailLocator);
@@ -45,9 +48,10 @@ public class SignUpLoginPage {
         webDriver.findElement(loginPassword).sendKeys(validPassword);
         By loginNavButton = By.xpath(loginButtonLocator);
         webDriver.findElement(loginNavButton).click();
+        LogsUtils.info("login value was Put and signUp Button was clicked");
         Thread.sleep(1000);
     }
-
+    @Step("Put an Invalid Email")
     public static void inValidGmailTest(WebDriver webDriver) throws InterruptedException {
         By loginTextInput = By.xpath(loginEmailLocator);
         webDriver.findElement(loginTextInput).sendKeys(userInValidGmail);
@@ -59,9 +63,10 @@ public class SignUpLoginPage {
         By message = By.xpath(assertionIncorrectMessage);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains("incorrect"));
+        LogsUtils.info("Email is incorecct");
         Thread.sleep(1000);
     }
-
+    @Step("Put an Invalid Password")
     public static void inValidPasswordTest(WebDriver webDriver) throws InterruptedException {
         By loginTextInput = By.xpath(loginEmailLocator);
         webDriver.findElement(loginTextInput).sendKeys(userGmail);
@@ -73,8 +78,10 @@ public class SignUpLoginPage {
         By message = By.xpath(assertionIncorrectMessage);
         String actualText = webDriver.findElement(message).getText();
         Assert.assertTrue(actualText.contains("incorrect"));
+        LogsUtils.info("Password is incorecct");
         Thread.sleep(1000);
     }
+    @Step("Put an existing Username")
     public static void ExistingUsernameTest(WebDriver webDriver) throws InterruptedException {
         By signUpTextInput = By.xpath(signUpUsernameLocator);
         webDriver.findElement(signUpTextInput).sendKeys(userName);
@@ -84,6 +91,7 @@ public class SignUpLoginPage {
         webDriver.findElement(signUpNavButton).click();
         By message = By.xpath(assertionExistsMessage);
         String actualText = webDriver.findElement(message).getText();
+        LogsUtils.info("Email Address already exist!");
         Assert.assertTrue(actualText.contains("Email Address already exist!"));
     }
 

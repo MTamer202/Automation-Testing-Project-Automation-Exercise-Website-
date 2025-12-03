@@ -1,0 +1,1 @@
+{"uuid":"49ae6734-8824-4f50-98b4-31ddba3d0d1e","name":"Automation Exercise Test Suite","children":["e45fcc7c-e94e-40a4-8bde-b864b1f32512"],"befores":[{"name":"beforeSuite","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1764750393328,"stop":1764750393388}],"afters":[],"start":1764750393284,"stop":1764750856129}

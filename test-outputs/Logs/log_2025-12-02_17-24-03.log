@@ -1,0 +1,19 @@
+[INFO] - [02-12-2025 17:24:04] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\M.TAMER\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[INFO] - [02-12-2025 17:24:04] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [02-12-2025 17:24:10] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 17:24:12] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [02-12-2025 17:24:14] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [02-12-2025 17:24:19] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [02-12-2025 17:24:22] [main] [Selenium.MainLocator] - Login Successful
+
+[INFO] - [02-12-2025 17:24:24] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [02-12-2025 17:24:28] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+

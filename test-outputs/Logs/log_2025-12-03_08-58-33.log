@@ -1,0 +1,21 @@
+[INFO] - [03-12-2025 08:58:35] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\M.TAMER\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[INFO] - [03-12-2025 08:58:42] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:58:42] [main] [Pages.HomePage] - Category Assertion In home page
+
+[INFO] - [03-12-2025 08:58:43] [main] [Pages.HomePage] - Women Category clicked home page
+
+[INFO] - [03-12-2025 08:58:44] [main] [Pages.HomePage] - Women Category Dress clicked home page
+
+[INFO] - [03-12-2025 08:58:44] [main] [Pages.HomePage] - Women Category dress Assertion in Home page
+
+[INFO] - [03-12-2025 08:58:45] [main] [Pages.HomePage] - Men Category clicked home page
+
+[INFO] - [03-12-2025 08:58:46] [main] [Pages.HomePage] - Men Category T-shirt clicked home page
+
+[INFO] - [03-12-2025 08:58:46] [main] [Pages.HomePage] - Men Category T-shirt Assertion in home page
+
+[INFO] - [03-12-2025 08:58:48] [main] [Pages.HomePage] - Clicked on home Page
+

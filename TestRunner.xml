@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Automation Exercise Test Suite">
+
+    <test name="All Tests">
+        <classes>
+            <class name="Selenium.MainLocator"/>
+                <methods>
+                    <include name="SignUpScenario"/>
+                    <include name="ValidLogin"/>
+                    <include name="InValidLoginEmail"/>
+                    <include name="InValidLoginPassword"/>
+                    <include name="LogoutUser"/>
+                    <include name="RegisterWithExistingUserName"/>
+                    <include name="ContactUsForm"/>
+                    <include name="TestCases"/>
+                    <include name="ProductsVerify"/>
+                    <include name="ProductSearch"/>
+                    <include name="SubscriptionInHomePage"/>
+                    <include name="SubscriptionInCartPage"/>
+                    <include name="AddToCart"/>
+                    <include name="ProductQuantity"/>
+                    <include name="PlaceOrderWhileRegister"/>
+                    <include name="PlaceOrderAfterRegister"/>
+                    <include name="PlaceOrderAfterLogin"/>
+                    <include name="RemoveOrderFromCart"/>
+                    <include name="CategoryNavigation"/>
+                    <include name="BrandNavigation"/>
+                    <include name="SearchAndVerifyAfterLogin"/>
+                    <include name="ProductReview"/>
+                    <include name="RecommendedItems"/>
+                    <include name="AddressVerifyInCheckout"/>
+                    <include name="DownloadInvoiceAfterPurchase"/>
+                </methods>
+        </classes>
+    </test>
+</suite>

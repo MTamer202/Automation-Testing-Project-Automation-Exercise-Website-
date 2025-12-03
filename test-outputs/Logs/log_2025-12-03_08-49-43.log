@@ -1,0 +1,349 @@
+[INFO] - [03-12-2025 08:49:45] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  E:\study\ITI content\automation\Graduation_Project\TestRunner.xml
+
+[INFO] - [03-12-2025 08:49:45] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [03-12-2025 08:49:52] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:49:54] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:49:55] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:50:00] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [03-12-2025 08:50:03] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [03-12-2025 08:50:04] [main] [Selenium.MainLocator] - Login Successful
+
+[INFO] - [03-12-2025 08:50:06] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [03-12-2025 08:50:09] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+
+[INFO] - [03-12-2025 08:50:16] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:50:17] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:50:19] [main] [Pages.SignUpLoginPage] - login value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:50:28] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:50:29] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:50:32] [main] [Pages.SignUpLoginPage] - Email is incorecct
+
+[INFO] - [03-12-2025 08:50:35] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:50:41] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:50:43] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:50:45] [main] [Pages.SignUpLoginPage] - Password is incorecct
+
+[INFO] - [03-12-2025 08:50:48] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:50:53] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:50:54] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:50:57] [main] [Pages.SignUpLoginPage] - login value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:51:00] [main] [Pages.HomePage] - Clicked on Logout account
+
+[INFO] - [03-12-2025 08:51:05] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:51:05] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:51:07] [main] [Pages.SignUpLoginPage] - Email Address already exist!
+
+[INFO] - [03-12-2025 08:51:09] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:51:14] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:51:16] [main] [Pages.HomePage] - Clicked on Contact Us Page
+
+[INFO] - [03-12-2025 08:51:19] [main] [Pages.ContactUsPage] - Picture was Putted Successfully 
+
+[INFO] - [03-12-2025 08:51:19] [main] [Pages.ContactUsPage] - Contact us successfully done
+
+[INFO] - [03-12-2025 08:51:20] [main] [Pages.ContactUsPage] - Assert on a Successfully submit
+
+[INFO] - [03-12-2025 08:51:27] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:51:29] [main] [Pages.HomePage] - Clicked on Test Cases Page
+
+[INFO] - [03-12-2025 08:51:30] [main] [Pages.TestCasesPage] - Test Cases is found correctly
+
+[INFO] - [03-12-2025 08:51:33] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:51:38] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:51:42] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:51:42] [main] [Pages.ProductsPage] - All Products are here
+
+[INFO] - [03-12-2025 08:51:45] [main] [Pages.ProductsPage] - Product with number:1 is found
+
+[INFO] - [03-12-2025 08:51:45] [main] [Pages.ProductsPage] - The Product has the features of Availability,Condition and Brand
+
+[INFO] - [03-12-2025 08:51:47] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:51:52] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:51:54] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:51:54] [main] [Pages.ProductsPage] - All Products are here
+
+[ERROR] - [03-12-2025 08:51:54] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter searchData
+[INFO] - [03-12-2025 08:51:55] [main] [Pages.ProductsPage] - The Product Blue top is found
+
+[INFO] - [03-12-2025 08:51:57] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:52:02] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:52:02] [main] [Pages.HomePage] - Assertion on SUBSCRIPTION in Home Page
+
+[INFO] - [03-12-2025 08:52:02] [main] [Pages.HomePage] - Putting Email and then click on SUBSCRIPTION
+
+[INFO] - [03-12-2025 08:52:02] [main] [Pages.HomePage] - successfully subscribed
+
+[INFO] - [03-12-2025 08:52:08] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:52:09] [main] [Pages.HomePage] - Clicked on Cart Page
+
+[INFO] - [03-12-2025 08:52:10] [main] [Pages.CartPage] - SUBSCRIPTION verified
+
+[INFO] - [03-12-2025 08:52:10] [main] [Pages.CartPage] - email is written and the subscription Arrow is clicked
+
+[INFO] - [03-12-2025 08:52:10] [main] [Pages.CartPage] - successfully subscribed In Cart Page
+
+[INFO] - [03-12-2025 08:52:15] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:52:17] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:52:17] [main] [Pages.ProductsPage] - All Products are here
+
+[INFO] - [03-12-2025 08:52:17] [main] [Pages.ProductsPage] - Product with number 1is added to cart
+
+[INFO] - [03-12-2025 08:52:18] [main] [Pages.ProductsPage] - Continue Shopping clicked
+
+[INFO] - [03-12-2025 08:52:19] [main] [Pages.ProductsPage] - Product with number 2is added to cart
+
+[INFO] - [03-12-2025 08:52:21] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:52:26] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:52:29] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:52:29] [main] [Pages.ProductsPage] - All Products are here
+
+[INFO] - [03-12-2025 08:52:31] [main] [Pages.ProductsPage] - Product with number:1 is found
+
+[INFO] - [03-12-2025 08:52:31] [main] [Pages.ProductsPage] - 4 is added to the Product
+
+[INFO] - [03-12-2025 08:52:32] [main] [Pages.ProductsPage] - Product was Added to cart
+
+[INFO] - [03-12-2025 08:52:34] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:52:35] [main] [Pages.ProductsPage] - Product's Quantity is = 4 = the same value we put
+
+[INFO] - [03-12-2025 08:52:40] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:52:42] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:52:42] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:52:44] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:52:45] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:52:46] [main] [Pages.CartPage] - Login button is clicked in checkout scenario
+
+[INFO] - [03-12-2025 08:52:47] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:52:52] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [03-12-2025 08:52:55] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [03-12-2025 08:52:57] [main] [Pages.HomePage] - Clicked on Cart Page
+
+[INFO] - [03-12-2025 08:52:59] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:53:04] [main] [Pages.PaymentPage] - Payment Method done 
+
+[INFO] - [03-12-2025 08:53:04] [main] [Pages.PaymentPage] - Assertion on Confirmation
+
+[INFO] - [03-12-2025 08:53:07] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [03-12-2025 08:53:09] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+
+[INFO] - [03-12-2025 08:53:15] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:53:16] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:53:17] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:53:21] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [03-12-2025 08:53:25] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [03-12-2025 08:53:26] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:53:27] [main] [Pages.ProductsPage] - Continue Shopping clicked
+
+[INFO] - [03-12-2025 08:53:28] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:53:30] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:53:32] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:53:37] [main] [Pages.PaymentPage] - Payment Method done 
+
+[INFO] - [03-12-2025 08:53:37] [main] [Pages.PaymentPage] - Assertion on Confirmation
+
+[INFO] - [03-12-2025 08:53:40] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [03-12-2025 08:53:41] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+
+[INFO] - [03-12-2025 08:53:48] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:53:49] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:53:51] [main] [Pages.SignUpLoginPage] - login value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:53:52] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:53:54] [main] [Pages.ProductsPage] - Continue Shopping clicked
+
+[INFO] - [03-12-2025 08:53:55] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:53:57] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:53:59] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:54:03] [main] [Pages.PaymentPage] - Payment Method done 
+
+[INFO] - [03-12-2025 08:54:03] [main] [Pages.PaymentPage] - Assertion on Confirmation
+
+[INFO] - [03-12-2025 08:54:10] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:54:11] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:54:12] [main] [Pages.ProductsPage] - Continue Shopping clicked
+
+[INFO] - [03-12-2025 08:54:13] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:54:15] [main] [Pages.ProductsPage] - Cart is opened
+
+[ERROR] - [03-12-2025 08:54:16] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter productID
+[INFO] - [03-12-2025 08:54:16] [main] [Pages.CartPage] - Item: 1 is removed
+
+[ERROR] - [03-12-2025 08:54:16] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter productID
+[INFO] - [03-12-2025 08:54:16] [main] [Pages.CartPage] - Item: 2 is removed
+
+[INFO] - [03-12-2025 08:54:18] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:54:22] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:54:23] [main] [Pages.HomePage] - Category Assertion In home page
+
+[INFO] - [03-12-2025 08:54:23] [main] [Pages.HomePage] - Women Category clicked home page
+
+[INFO] - [03-12-2025 08:54:25] [main] [Pages.HomePage] - Women Category Dress clicked home page
+
+[INFO] - [03-12-2025 08:54:25] [main] [Pages.HomePage] - Women Category dress Assertion in Home page
+
+[INFO] - [03-12-2025 08:54:25] [main] [Pages.HomePage] - Men Category clicked home page
+
+[INFO] - [03-12-2025 08:54:31] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:54:34] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:54:35] [main] [Pages.ProductsPage] - There is a Brand in the Product
+
+[INFO] - [03-12-2025 08:54:36] [main] [Pages.ProductsPage] - the brand 1 is chosen
+
+[INFO] - [03-12-2025 08:54:38] [main] [Pages.ProductsPage] - the brand 2 is chosen
+
+[INFO] - [03-12-2025 08:54:42] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:54:47] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:54:49] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:54:50] [main] [Pages.ProductsPage] - All Products are here
+
+[ERROR] - [03-12-2025 08:54:50] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter searchData
+[INFO] - [03-12-2025 08:54:52] [main] [Pages.ProductsPage] - The Product Blue top is found
+
+[INFO] - [03-12-2025 08:54:52] [main] [Pages.ProductsPage] - Product with number 1is added to cart
+
+[INFO] - [03-12-2025 08:54:54] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:54:56] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:54:59] [main] [Pages.SignUpLoginPage] - login value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:55:01] [main] [Pages.HomePage] - Clicked on Cart Page
+
+[INFO] - [03-12-2025 08:55:07] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:55:09] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:55:12] [main] [Pages.ProductsPage] - Product with number:1 is found
+
+[INFO] - [03-12-2025 08:55:12] [main] [Pages.ProductsPage] - The Product has the features of Availability,Condition and Brand
+
+[INFO] - [03-12-2025 08:55:12] [main] [Pages.ProductsPage] - the review is written successfully
+
+[INFO] - [03-12-2025 08:55:14] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [03-12-2025 08:55:18] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:55:19] [main] [Pages.HomePage] - Recommended Items visiable in home page
+
+[INFO] - [03-12-2025 08:55:24] [main] [Pages.HomePage] - Recommended Item is chosen in home page
+
+[INFO] - [03-12-2025 08:55:26] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:55:31] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:55:32] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:55:34] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:55:42] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:55:45] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [03-12-2025 08:55:46] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [03-12-2025 08:55:47] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [03-12-2025 08:55:49] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:55:50] [main] [Pages.CartPage] - Login button is clicked in checkout scenario
+
+[INFO] - [03-12-2025 08:55:51] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:55:55] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [03-12-2025 08:55:58] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [03-12-2025 08:56:00] [main] [Pages.HomePage] - Clicked on Cart Page
+
+[INFO] - [03-12-2025 08:56:02] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [03-12-2025 08:56:07] [main] [Pages.PaymentPage] - Payment Method done 
+
+[INFO] - [03-12-2025 08:56:07] [main] [Pages.PaymentPage] - Assertion on Confirmation
+
+[INFO] - [03-12-2025 08:56:08] [main] [Pages.PaymentPage] - Invoice Downloading
+
+[INFO] - [03-12-2025 08:56:11] [main] [Pages.PaymentPage] - Invoice Downloaded
+
+[INFO] - [03-12-2025 08:56:13] [main] [Pages.PaymentPage] - pressed on Continue Payment
+
+[INFO] - [03-12-2025 08:56:16] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [03-12-2025 08:56:17] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+

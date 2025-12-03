@@ -1,0 +1,79 @@
+[INFO] - [02-12-2025 20:04:27] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\M.TAMER\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[INFO] - [02-12-2025 20:04:35] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 20:04:38] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [02-12-2025 20:04:39] [main] [Pages.ProductsPage] - All Products are here
+
+[INFO] - [02-12-2025 20:05:03] [main] [Pages.ProductsPage] - Product with number 1is added to cart
+
+[INFO] - [02-12-2025 20:05:04] [main] [Pages.ProductsPage] - Continue Shopping clicked
+
+[INFO] - [02-12-2025 20:05:05] [main] [Pages.ProductsPage] - Product with number 2is added to cart
+
+[INFO] - [02-12-2025 20:05:07] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [02-12-2025 20:05:13] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 20:05:20] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [02-12-2025 20:05:22] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [02-12-2025 20:05:29] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [02-12-2025 20:05:32] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [02-12-2025 20:05:34] [main] [Pages.HomePage] - Added a product to cart
+
+[INFO] - [02-12-2025 20:05:36] [main] [Pages.ProductsPage] - Cart is opened
+
+[INFO] - [02-12-2025 20:05:38] [main] [Pages.CartPage] - Checkout button is clicked
+
+[INFO] - [02-12-2025 20:05:38] [main] [Pages.SignUpPage] - Got the user name address: 35st Mazen Ehab
+
+[INFO] - [02-12-2025 20:05:38] [main] [Pages.CartPage] - Delivery address is correct
+
+[INFO] - [02-12-2025 20:05:38] [main] [Pages.SignUpPage] - Got the user name address: 35st Mazen Ehab
+
+[INFO] - [02-12-2025 20:05:38] [main] [Pages.CartPage] - Billing address is correct
+
+[INFO] - [02-12-2025 20:05:41] [main] [Pages.HomePage] - Clicked on Delete Account
+
+[INFO] - [02-12-2025 20:05:43] [main] [Pages.DeleteConfirmation] - Account Deleted Successfully
+
+[INFO] - [02-12-2025 20:05:48] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 20:05:51] [main] [Pages.HomePage] - Clicked on Products Page
+
+[INFO] - [02-12-2025 20:07:11] [main] [Pages.ProductsPage] - There is a Brand in the Product
+
+[INFO] - [02-12-2025 20:07:14] [main] [Pages.ProductsPage] - the brand 1 is chosen
+
+[INFO] - [02-12-2025 20:07:16] [main] [Pages.ProductsPage] - the brand 3 is chosen
+
+[INFO] - [02-12-2025 20:07:20] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [02-12-2025 20:07:26] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 20:07:27] [main] [Pages.HomePage] - Category Assertion In home page
+
+[INFO] - [02-12-2025 20:07:27] [main] [Pages.HomePage] - Women Category clicked home page
+
+[INFO] - [02-12-2025 20:07:28] [main] [Pages.HomePage] - Women Category Dress clicked home page
+
+[INFO] - [02-12-2025 20:07:29] [main] [Pages.HomePage] - Women Category dress Assertion in Home page
+
+[INFO] - [02-12-2025 20:07:29] [main] [Pages.HomePage] - Men Category clicked home page
+
+[INFO] - [02-12-2025 20:07:31] [main] [Pages.HomePage] - Men Category T-shirt clicked home page
+
+[INFO] - [02-12-2025 20:07:31] [main] [Pages.HomePage] - Men Category T-shirt Assertion in home page
+
+[INFO] - [02-12-2025 20:07:34] [main] [Pages.HomePage] - Clicked on home Page
+
+[INFO] - [02-12-2025 20:07:39] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 20:07:42] [main] [Pages.HomePage] - Clicked on Contact Us Page
+

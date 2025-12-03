@@ -1,0 +1,17 @@
+[INFO] - [03-12-2025 08:00:27] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\M.TAMER\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[INFO] - [03-12-2025 08:00:28] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [03-12-2025 08:00:44] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 08:00:47] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 08:00:50] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+
+[INFO] - [03-12-2025 08:00:58] [main] [Pages.SignUpPage] - All Values was Put and clicked on submit
+
+[INFO] - [03-12-2025 08:01:03] [main] [Pages.SignUpConfirmation] - registration success
+
+[INFO] - [03-12-2025 08:01:04] [main] [Selenium.MainLocator] - Login Successful
+

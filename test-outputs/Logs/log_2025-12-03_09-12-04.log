@@ -1,0 +1,11 @@
+[INFO] - [03-12-2025 09:12:06] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  E:\study\ITI content\automation\Graduation_Project\TestRunner.xml
+
+[INFO] - [03-12-2025 09:12:07] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [03-12-2025 09:12:18] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [03-12-2025 09:12:19] [main] [Pages.HomePage] - Clicked on Signup/login Page
+
+[INFO] - [03-12-2025 09:12:21] [main] [Pages.SignUpLoginPage] - signUp value was Put and signUp Button was clicked
+

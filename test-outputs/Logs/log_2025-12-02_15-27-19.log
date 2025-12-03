@@ -1,0 +1,6 @@
+[INFO] - [02-12-2025 15:27:19] [main] [Selenium.MainLocator] - Test Started: loginTest
+
+[INFO] - [02-12-2025 15:27:25] [main] [Selenium.BaseTest] - Edge is Opened Successfully
+
+[INFO] - [02-12-2025 15:27:37] [main] [Selenium.MainLocator] - Login Successful
+
