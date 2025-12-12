@@ -5,16 +5,12 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utiles.LogsUtils;
 
-import java.time.Duration;
 
-
-public class MainLocator extends BaseTest {
+public class End2End extends BaseTest {
 
     public final String loginUrlValue = "https://www.automationexercise.com/login";
 

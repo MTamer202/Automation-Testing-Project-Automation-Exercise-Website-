@@ -3,7 +3,7 @@
 
     <test name="All Tests">
         <classes>
-            <class name="Selenium.MainLocator"/>
+            <class name="Selenium.End2End"/>
                 <methods>
                     <include name="SignUpScenario"/>
                     <include name="ValidLogin"/>

@@ -1,7 +1,7 @@
 [INFO] - [02-12-2025 20:55:10] [main] [org.testng.internal.Utils] - [TestNG] Running:
   E:\study\ITI content\automation\Graduation_Project\TestRunner.xml
 
-[INFO] - [02-12-2025 20:55:10] [main] [Selenium.MainLocator] - Test Started: loginTest
+[INFO] - [02-12-2025 20:55:10] [main] [Selenium.End2End] - Test Started: loginTest
 
 [INFO] - [02-12-2025 20:55:19] [main] [Selenium.BaseTest] - Edge is Opened Successfully
 
@@ -13,7 +13,7 @@
 
 [INFO] - [02-12-2025 20:55:30] [main] [Pages.SignUpConfirmation] - registration success
 
-[INFO] - [02-12-2025 20:55:31] [main] [Selenium.MainLocator] - Login Successful
+[INFO] - [02-12-2025 20:55:31] [main] [Selenium.End2End] - Login Successful
 
 [INFO] - [02-12-2025 20:55:33] [main] [Pages.HomePage] - Clicked on Delete Account
 

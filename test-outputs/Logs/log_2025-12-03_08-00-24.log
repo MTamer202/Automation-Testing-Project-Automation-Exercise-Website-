@@ -1,7 +1,7 @@
 [INFO] - [03-12-2025 08:00:27] [main] [org.testng.internal.Utils] - [TestNG] Running:
   C:\Users\M.TAMER\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
 
-[INFO] - [03-12-2025 08:00:28] [main] [Selenium.MainLocator] - Test Started: loginTest
+[INFO] - [03-12-2025 08:00:28] [main] [Selenium.End2End] - Test Started: loginTest
 
 [INFO] - [03-12-2025 08:00:44] [main] [Selenium.BaseTest] - Edge is Opened Successfully
 
@@ -13,5 +13,5 @@
 
 [INFO] - [03-12-2025 08:01:03] [main] [Pages.SignUpConfirmation] - registration success
 
-[INFO] - [03-12-2025 08:01:04] [main] [Selenium.MainLocator] - Login Successful
+[INFO] - [03-12-2025 08:01:04] [main] [Selenium.End2End] - Login Successful
 
