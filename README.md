@@ -1,26 +1,10 @@
 📌 Automation Testing Project – Automation Exercise Website
 
-A complete Selenium + TestNG automation framework covering 25 real end-to-end UI test cases on the Automation Exercise
- demo website.
+A complete Selenium Web Automation Framework built for the ITI Graduation Project, implementing 25 automated UI test cases on the Automation Exercise website.
 
-🚀 Project Overview
+This framework uses Java, Selenium WebDriver, TestNG, POM, Allure Reports, and Log4j to create a scalable and maintainable testing architecture.
 
-This project demonstrates a robust and scalable web automation framework built using:
-
-Java
-
-Selenium WebDriver
-
-TestNG
-
-Page Object Model (POM)
-
-Allure Reporting
-
-Log4j Logging
-
-It includes 25 functional test cases, covering multiple features such as authentication, product flow, API interactions, contact forms, and more.
-
+📂 Project Structure
 Graduation_Project
 ├── .idea/                          # IntelliJ IDEA settings (ignored in CI)
 ├── .mvn/                           # Maven Wrapper files
@@ -29,6 +13,8 @@ Graduation_Project
 │   ├── main
 │   │   └── java
 │   │       └── org.example
+│   │           ├── Main.java       # Entry point (optional)
+│   │           │
 │   │           ├── Pages/          # Page Object Model (POM)
 │   │           │   ├── CartPage.java
 │   │           │   ├── ContactUsPage.java
@@ -67,73 +53,92 @@ Graduation_Project
 ├── README.md                       # Project documentation
 └── Me.pdf                          # Project PDF (your documentation)
 
-🛠️ Tech Stack
-Tool	Purpose
-Java	Main programming language
-Selenium WebDriver	UI automation
-TestNG	Test runner, assertions, reporting
-Page Object Model	Maintainable test structure
-Allure Reports	Detailed reporting & analytics
-Log4j	Logs for debugging
-Maven	Build + dependency management
-✔️ Test Coverage (25 Test Cases)
+🚀 Project Overview
 
-Your test suite includes coverage for:
+This is a graduation project developed during the ITI training program under the supervision of Dr. Amany.
+It demonstrates a complete automation testing framework built to cover real-world UI test cases on the Automation Exercise website.
 
-🔹 Authentication
+The framework follows industry-standard practices:
 
-User registration
+Page Object Model (POM)
 
-Login / logout
+TestNG test execution
 
-Negative login cases
+Logging with Log4j2
 
-Account deletion
+Allure reporting
+
+Clean and scalable architecture
+
+🧪 Test Cases Covered (25 Total)
+🔹 User Account
+
+Register new user
+
+Login with valid/invalid data
+
+Logout
+
+Delete account
+
+Account creation confirmation
 
 🔹 Product & Cart
 
-Add to cart
+Add products to cart
 
-Verify product quantity
+Verify cart quantities
 
-Add multiple products
+Remove items
 
-Checkout process
+Checkout and payment flow
 
 🔹 Contact & Forms
 
-Contact us form
+Fill contact form
 
-Submitting messages
+Submit form with file upload
 
-File upload
+Validate form success
 
-🔹 API Testing Section
+🔹 Browsing & Navigation
 
-Navigating to API page
+Navigate product categories
 
-Validating API response samples
+Verify home page sliders
 
-🔹 Website Navigation
+Scroll tests
 
-Verifying pages
+Subscription section tests
 
-Subscription section
+🔹 API Test Page
 
-Scroll & visibility tests
+Navigate to API test section
 
-Category filters
+Validate displayed API examples
 
-▶️ How to Run the Project
-1️⃣ Clone the Repo
+🛠️ Technologies Used
+Tool	Purpose
+Java	Primary language
+Selenium WebDriver	UI automation
+TestNG	Test runner & assertions
+POM (Page Object Model)	Clean and maintainable test structure
+Allure Reports	Detailed test reporting
+Log4j2	Logging configuration
+Maven	Dependency management
+▶️ How to Run the Tests
+1️⃣ Clone the repository
 git clone https://github.com/MTamer202/Automation-Testing-Project-Automation-Exercise-Website-.git
 
-2️⃣ Install Dependencies
+2️⃣ Install dependencies
 mvn clean install
 
-3️⃣ Run All Test Cases
-mvn test
+3️⃣ Run the TestNG Suite
+mvn test -DsuiteXmlFile=TestRunner.xml
 
-📊 Generate Allure Report
+📊 Generating Allure Reports
 Generate report
-allure serve test-outputs/allure-results
+allure generate test-outputs/allure-results --clean -o allure-report
+
+Open report
+allure open allure-report
