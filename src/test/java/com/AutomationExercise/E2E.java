@@ -25,14 +25,14 @@ public class E2E {
     JsonUtils testData;
     String browserName;
 
-//Homepage,SignupLoginPage,SignUpPage,SignUpConfirmation,DeleteConfirmation
+    //Homepage,SignupLoginPage,SignUpPage,SignUpConfirmation,DeleteConfirmation
     @Test(description = "TC-01: Signup with new email")
-    @Story("Good scenario - Signup")
+    @Story("Good scenario - Signup/Login Page")
     @Description("Verify that the email is made and then delete it")
-    public void SignUpScenario() throws InterruptedException {
+    public void SignUpScenario() {
         LogsUtils.info("Test Started: loginTest");
         new HomePage(driver)
-                .signUpLogin().SignUpValuePut(testData.getJsonData("sign-up-data.username"),testData.getJsonData("sign-up-data.signup-Email"))
+                .signUpLogin().SignUpValuePut(testData.getJsonData("sign-up-data.username"), testData.getJsonData("sign-up-data.signup-Email"))
                 .clickOnSignButton().validSignUpAssertion()
                 .genderChoose(testData.getJsonData("sign-up-data.gender"))
                 .addPassword(testData.getJsonData("sign-up-data.password"))
@@ -53,6 +53,121 @@ public class E2E {
                 .RegistrationConfirmation()
                 .deleteAccount().DeleteAccountConfirmation();
     }
+
+    @Test(description = "TC-02: Login with a valid account")
+    @Story("Good scenario - Signup/Login Page")
+    @Description("Verify that the email is valid and register")
+    public void ValidLogin() {
+        new HomePage(driver).signUpLogin().LoginValuePut(testData.getJsonData("login-data.valid-email"),
+                        testData.getJsonData("login-data.valid-password"))
+                .clickOnLogin().validLoginAssertion();
+    }
+
+    @Test(description = "TC-03: Login with a invalid account")
+    @Story("Bad Scenario - Signup/Login Page")
+    @Description("Verify that the login is failed due to wrong email")
+    public void InValidLoginEmail() {
+        new HomePage(driver).signUpLogin().LoginValuePut(testData.getJsonData("login-data.invalid-email"),
+                        testData.getJsonData("login-data.valid-password"))
+                .clickOnLogin().invalidLoginAssertion().getHomePage();
+    }
+
+    @Test(description = "TC-04: Login with a invalid account")
+    @Story("Bad Scenario - Signup/Login Page")
+    @Description("Verify that the login is failed due to wrong password")
+    public void InValidLoginPassword() {
+        new HomePage(driver).signUpLogin().LoginValuePut(testData.getJsonData("login-data.valid-email"),
+                        testData.getJsonData("login-data.invalid-password"))
+                .clickOnLogin().invalidLoginAssertion().getHomePage();
+    }
+
+    @Test(description = "TC-05: Logout from account")
+    @Story("Good Scenario - Signup/Login Page")
+    @Description("Verify that the logout is done correctly")
+    public void LogoutUser() {
+        new HomePage(driver).signUpLogin().LoginValuePut(testData.getJsonData("login-data.valid-email"),
+                        testData.getJsonData("login-data.valid-password"))
+                .clickOnLogin().validLoginAssertion().logoutAccount().logoutAssertionNavigateToLogin();
+    }
+
+    @Test(description = "TC-06: register with existing user")
+    @Story("Bad Scenario - Signup/Login Page")
+    @Description("Verify that the Register is failed")
+    public void RegisterWithExistingUserName() {
+        new HomePage(driver).signUpLogin().SignUpValuePut(testData.getJsonData("sign-up-data.username"),
+                        testData.getJsonData("login-data.valid-email")).clickOnSignButton()
+                .invalidSignUpAssertion();
+
+    }
+
+    @Test(description = "TC-07: Contact us form ")
+    @Story("Good Scenario - Contact us Page")
+    @Description("Verify that the Contact us is formed successfully")
+    public void ContactUsForm() {
+        new HomePage(driver).contactUsPage().puttingName(testData.getJsonData("sign-up-data.First-name")
+                        + " " + testData.getJsonData("sign-up-data.Last-name"))
+                .puttingEmail(testData.getJsonData("login-data.valid-email"))
+                .puttingSubject("Automaion Testing")
+                .puttingMessageInGetInTouch("Hello I am Tamer and I am Trying to find peace")
+                .UploadingFile("Me.pdf")
+                .clickSubmit().ContactUsAssertions();
+    }
+
+    @Test(description = "TC-08: Test Cases Page Perform Successfully")
+    @Story("Good Scenario - Test Cases Page")
+    @Description("Verify that the login is failed")
+    public void TestCases() {
+        new HomePage(driver)
+                .testCasesPage()
+                .TestCasesAssertion()
+                .navigateToHomePage();
+    }
+
+    @Test(description = "TC-09: Login with a valid account")
+    @Story("Good Scenario - Products Page")
+    @Description("Verify that the Products is shown")
+    public void ProductsVerify() {
+        new HomePage(driver)
+                .productPage().AllProductAssertion()
+                .ViewProduct("1")
+                .ProductAssertion()
+                .navigateToHomePage();
+    }
+
+    @Test(description = "TC-10: Search on a specific Product")
+    @Story("Good Scenario - Products Page")
+    @Description("Verify that the searched Product is found successfully")
+    public void ProductSearch() {
+        new HomePage(driver)
+                .productPage().AllProductAssertion()
+                .productSearch("Blue top")
+                .searchProductAssertion("Blue top")
+                .navigateToHomePage();
+    }
+
+    @Test(description = "TC-11: Subscription in home page")
+    @Story("Good Scenario - Home Page")
+    @Description("Verify that the subscription is performed successfully in home Page")
+    public void SubscriptionInHomePage() {
+        new HomePage(driver)
+                .subscriptionAssertion()
+                .addEmailToSubscription(testData.getJsonData("login-data.valid-email"))
+                .pressArrowSubscription()
+                .successfullySubscriptionEmailAssertion();
+    }
+
+    @Test(description = "TC-12: Subscription in Cart page")
+    @Story("Good Scenario - Cart Page")
+    @Description("Verify that the subscription is performed successfully In Cart Page")
+    public void SubscriptionInCartPage() {
+        new HomePage(driver)
+                .cartPage()
+                .SubscriptionEmailLocationAssertion()
+                .SubscriptionEmail(testData.getJsonData("login-data.valid-email"))
+                .clickOnArrowOfSubscription()
+                .subscriptionEmailSuccessfullyAssertion();
+    }
+
     //configurations
     @BeforeMethod
     public void beforeClass() {
@@ -61,8 +176,9 @@ public class E2E {
         driver = new GUIDriver(browserName);
         testData = new JsonUtils("test-data");
         LogsUtils.info(browserName + " is Opened Successfully");
-        new HomePage(driver).navigateToLoginPage();
+        new HomePage(driver).navigateToHomePage();
     }
+
 
     @AfterMethod
     public void tearDown() {

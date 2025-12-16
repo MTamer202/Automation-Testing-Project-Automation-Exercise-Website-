@@ -55,5 +55,11 @@ public class ElementActions {
         LogsUtils.info("Scrolling to locator");
 
     }
+    public void clearData(By locator){
+        waits.waitForElementClickable(locator);
+        scrollToElement(locator);
+        findElement(locator).clear();
+        LogsUtils.info("the data is cleared");
+    }
 
 }

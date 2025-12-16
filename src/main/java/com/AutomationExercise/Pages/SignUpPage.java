@@ -2,6 +2,7 @@ package com.AutomationExercise.Pages;
 
 import com.AutomationExercise.drivers.GUIDriver;
 import com.AutomationExercise.utils.LogsUtils;
+import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -49,6 +50,11 @@ public class SignUpPage {
     private static final String submitButton = "//button[@type='submit']";
 
     /***Methods***/
+    @Step("Navigate Login Page")
+    public void navigateToHomePage() {
+        driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
+    }
+
     @Step("put the values in the Signup Page")
     public static void signUpScenario(WebDriver webDriver) {
         /***  Registration Form ***/
@@ -57,31 +63,34 @@ public class SignUpPage {
         webDriver.findElement(signUpSubmitButton).click();
         LogsUtils.info("All Values was Put and clicked on submit");
     }
+
     @Step("adding gender: {gender}")
     public SignUpPage genderChoose(String gender) {
         final String genderLocator = "//label[@for='id_gender";
         switch (gender.toLowerCase()) {
             case "male":
-                By signUpMaleGenderId = By.xpath(genderLocator+"1']");
+                By signUpMaleGenderId = By.xpath(genderLocator + "1']");
                 driver.elementActions().clickElement(signUpMaleGenderId);
                 break;
             case "female":
-                By signUpFemaleGenderId = By.xpath(genderLocator+"2']");
+                By signUpFemaleGenderId = By.xpath(genderLocator + "2']");
                 driver.elementActions().clickElement(signUpFemaleGenderId);
                 break;
         }
-        LogsUtils.info("Gender: "+gender+" is added");
+        LogsUtils.info("Gender: " + gender + " is added");
         return new SignUpPage(driver);
     }
+
     @Step("adding password: {password}")
-    public SignUpPage addPassword(String password){
+    public SignUpPage addPassword(String password) {
         By signUpPassword = By.xpath(userPasswordLocator);
-        driver.elementActions().sendData(signUpPassword,password);
-        LogsUtils.info("password: "+password+" is added");
+        driver.elementActions().sendData(signUpPassword, password);
+        LogsUtils.info("password: " + password + " is added");
         return new SignUpPage(driver);
     }
+
     @Step("adding Birthday: {day} - {month} - {year}")
-    public SignUpPage addBirthDate(String day,String month,String year){
+    public SignUpPage addBirthDate(String day, String month, String year) {
         By signUpBirthday = By.xpath(birthdayLocator);
         Select dropdownBirthday = new Select(driver.elementActions().findElement(signUpBirthday));
         dropdownBirthday.selectByVisibleText(day);
@@ -91,33 +100,37 @@ public class SignUpPage {
         By signUpBirthyear = By.xpath(birthYearLocator);
         Select dropdownBirthyear = new Select(driver.elementActions().findElement(signUpBirthyear));
         dropdownBirthyear.selectByVisibleText(year);
-        LogsUtils.info("Birthday: "+day+" - "+month+" - "+ year+" is added");
+        LogsUtils.info("Birthday: " + day + " - " + month + " - " + year + " is added");
         return new SignUpPage(driver);
     }
+
     @Step("adding Firstname: {firstName} and lastname: {lastname}")
-    public SignUpPage addName(String firstName,String lastname){
+    public SignUpPage addName(String firstName, String lastname) {
         By signUpFirstName = By.xpath(userFirstNameLocator);
-        driver.elementActions().sendData(signUpFirstName,firstName);
+        driver.elementActions().sendData(signUpFirstName, firstName);
         By signUpLastName = By.xpath(userLastNameLocator);
-        driver.elementActions().sendData(signUpLastName,lastname);
-        LogsUtils.info("full Name: "+firstName+" "+lastname+" is added");
+        driver.elementActions().sendData(signUpLastName, lastname);
+        LogsUtils.info("full Name: " + firstName + " " + lastname + " is added");
         return new SignUpPage(driver);
     }
+
     @Step("adding company: {company}")
-    public SignUpPage addCompany(String company){
+    public SignUpPage addCompany(String company) {
         By signUpCompany = By.xpath(userCompanyLocator);
-        driver.elementActions().sendData(signUpCompany,company);
-        LogsUtils.info("Company: "+company+" is added");
+        driver.elementActions().sendData(signUpCompany, company);
+        LogsUtils.info("Company: " + company + " is added");
         return new SignUpPage(driver);
     }
+
     @Step("adding address 1: {address1}, and address 2: {address2}")
-    public SignUpPage addAddresses(String address1,String address2){
+    public SignUpPage addAddresses(String address1, String address2) {
         By signUpAddress1 = By.xpath(userAddress1Locator);
-        driver.elementActions().sendData(signUpAddress1,address1);
+        driver.elementActions().sendData(signUpAddress1, address1);
         By signUpAddress2 = By.xpath(userAddress2Locator);
-        driver.elementActions().sendData(signUpAddress2,address2);
+        driver.elementActions().sendData(signUpAddress2, address2);
         return new SignUpPage(driver);
     }
+
     @Step("adding country: {country}")
     public SignUpPage countryChoose(String country) {
         By signUpCountry = By.xpath(userCountryLocator);
@@ -125,30 +138,35 @@ public class SignUpPage {
         dropdownCountry.selectByVisibleText(country);
         return new SignUpPage(driver);
     }
+
     @Step("adding State: {state}")
     public SignUpPage addingState(String state) {
         By signUpState = By.xpath(userStateLocator);
-        driver.elementActions().sendData(signUpState,state);
+        driver.elementActions().sendData(signUpState, state);
         return new SignUpPage(driver);
     }
+
     @Step("adding City: {city}")
     public SignUpPage addingCity(String city) {
         By signUpCity = By.xpath(userCityLocator);
-        driver.elementActions().sendData(signUpCity,city);
+        driver.elementActions().sendData(signUpCity, city);
         return new SignUpPage(driver);
     }
+
     @Step("adding Zip Code: {code}")
     public SignUpPage addingZipCode(String code) {
         By signUpZipCode = By.xpath(userZipCodeLocator);
-        driver.elementActions().sendData(signUpZipCode,code);
+        driver.elementActions().sendData(signUpZipCode, code);
         return new SignUpPage(driver);
     }
+
     @Step("adding phoneNumber: {number}")
     public SignUpPage addingNumber(String number) {
         By signUpMobile = By.xpath(userMobileNumberLocator);
-        driver.elementActions().sendData(signUpMobile,number);
+        driver.elementActions().sendData(signUpMobile, number);
         return new SignUpPage(driver);
     }
+
     @Step("Clicking on submit Button")
     public SignUpPage clickOnSubmit() {
         By signUpSubmitButton = By.xpath(submitButton);
@@ -156,15 +174,17 @@ public class SignUpPage {
         LogsUtils.info("All Values was Put and clicked on submit");
         return new SignUpPage(driver);
     }
+
     @Step("Get the user address")
     public String GetUserAddress() {
         LogsUtils.info("Got the user name address: " + userAddress);
         return userAddress;
     }
+
     //validations
     @Step("verify we go to sign up confirmation page")
-    public SignUpConfirmation signUpConfirmationAssertion(){
-        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(),SignupConfirmationPage,"confirmation didn't went successfully");
+    public SignUpConfirmation signUpConfirmationAssertion() {
+        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(), SignupConfirmationPage, "confirmation didn't went successfully");
         return new SignUpConfirmation(driver);
     }
 

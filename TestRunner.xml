@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SwagLabs Tests">
+
+    <test name="All Tests">
+        <classes>
+            <class name="com.AutomationExercise.E2E"/>
+            <methods>
+                <include name="SignUpScenario"/>
+                <include name="ValidLogin"/>
+                <include name="InValidLoginEmail"/>
+                <include name="InValidLoginPassword"/>
+                <include name="LogoutUser"/>
+                <include name="RegisterWithExistingUserName"/>
+                <include name="ContactUsForm"/>
+                <include name="TestCases"/>
+                <include name="ProductsVerify"/>
+                <include name="ProductSearch"/>
+                <include name="SubscriptionInHomePage"/>
+                <include name="SubscriptionInCartPage"/>
+
+            </methods>
+        </classes>
+    </test>
+</suite>

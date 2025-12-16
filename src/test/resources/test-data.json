@@ -19,6 +19,13 @@
     "City": "Mukkatam",
     "Zip-code": "12345",
     "phone-number": "0123456789"
+  },
+  "login-data": {
+    "valid-email": "mohamedTamer1234@gmail.com",
+    "valid-password": "Mohamed123",
+    "invalid-email": "mohamedTamer321@gmail.com",
+    "invalid-password": "password"
   }
 }
+
 

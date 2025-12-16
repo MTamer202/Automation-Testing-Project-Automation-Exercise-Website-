@@ -2,6 +2,7 @@ package com.AutomationExercise.Pages;
 
 import com.AutomationExercise.drivers.GUIDriver;
 import com.AutomationExercise.utils.LogsUtils;
+import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,12 @@ public class PaymentPage {
     //code
     //variables
     private final GUIDriver driver;
+
     //constructors
-    public PaymentPage(GUIDriver driver){
+    public PaymentPage(GUIDriver driver) {
         this.driver = driver;
     }
+
     /***Locators***/
     private static final String messageCommentLocator = "//textarea[@class='form-control']";
     private static final String placeOrderButtonLocator = "//a[normalize-space(text())='Place Order']";
@@ -34,60 +37,73 @@ public class PaymentPage {
     /***Variables***/
     private static final String comment = "Need Order ASAP";
 
+    @Step("Navigate Login Page")
+    public void navigateToHomePage() {
+        driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
+    }
+
     @Step("Write Comment In Payment Page")
-    public PaymentPage WriteComment(String comment){
-        By message= By.xpath(messageCommentLocator);
-        driver.elementActions().sendData(message,comment);
+    public PaymentPage WriteComment(String comment) {
+        By message = By.xpath(messageCommentLocator);
+        driver.elementActions().sendData(message, comment);
         return new PaymentPage(driver);
     }
+
     @Step("Click on Place Order in Payment Page")
-    public PaymentPage PlaceOrder(){
-        By PlaceOrderButton= By.xpath(placeOrderButtonLocator);
+    public PaymentPage PlaceOrder() {
+        By PlaceOrderButton = By.xpath(placeOrderButtonLocator);
         driver.elementActions().clickElement(PlaceOrderButton);
         return new PaymentPage(driver);
     }
+
     @Step("Place The Payment Methods in the page")
     public static void PaymentCardValues(WebDriver webDriver) throws InterruptedException {
         By submitPayment = By.xpath(paymentButtonLocator);
         webDriver.findElement(submitPayment).click();
         LogsUtils.info("Payment Method done ");
     }
+
     @Step("put the Card Name: {name}")
-    public PaymentPage puttingName(String name){
+    public PaymentPage puttingName(String name) {
         By cardName = By.xpath(nameOnCardLocator);
-        driver.elementActions().sendData(cardName,name);
+        driver.elementActions().sendData(cardName, name);
         return new PaymentPage(driver);
     }
+
     @Step("put the Card Number: {number}")
-    public PaymentPage puttingNumber(String number){
+    public PaymentPage puttingNumber(String number) {
         By cardName = By.xpath(cardNumberLocator);
-        driver.elementActions().sendData(cardName,number);
+        driver.elementActions().sendData(cardName, number);
         return new PaymentPage(driver);
     }
+
     @Step("put the Card CVC: {cvcNumber}")
-    public PaymentPage puttingCVCNumber(String cvcNumber){
+    public PaymentPage puttingCVCNumber(String cvcNumber) {
         By cardName = By.xpath(cardCVCLocator);
-        driver.elementActions().sendData(cardName,cvcNumber);
+        driver.elementActions().sendData(cardName, cvcNumber);
         return new PaymentPage(driver);
     }
+
     @Step("place the card expiry date: {month} - {year}")
-    public PaymentPage putExpiryDate(String month,String year){
+    public PaymentPage putExpiryDate(String month, String year) {
         By cardExpiryMonth = By.xpath(cardExpirationMonthLocator);
-        driver.elementActions().sendData(cardExpiryMonth,month);
+        driver.elementActions().sendData(cardExpiryMonth, month);
         By cardExpiryYear = By.xpath(cardExpirationYearLocator);
-        driver.elementActions().sendData(cardExpiryYear,year);
+        driver.elementActions().sendData(cardExpiryYear, year);
         return new PaymentPage(driver);
     }
+
     @Step("Click on submit")
-    public PaymentPage submitPayment(){
+    public PaymentPage submitPayment() {
         By submitPayment = By.xpath(paymentButtonLocator);
         driver.elementActions().clickElement(submitPayment);
         LogsUtils.info("Payment Method done ");
         return new PaymentPage(driver);
     }
+
     @Step("Download InVoice")
-    public PaymentPage PaymentDownloadInvoice(){
-        By DownloadInvoiceButton= By.xpath(paymentDownloadInvoiceButtonLocator);
+    public PaymentPage PaymentDownloadInvoice() {
+        By DownloadInvoiceButton = By.xpath(paymentDownloadInvoiceButtonLocator);
         driver.elementActions().clickElement(DownloadInvoiceButton);
         LogsUtils.info("Invoice Downloading");
         /*Download Check*/
@@ -109,22 +125,24 @@ public class PaymentPage {
             if (downloadedFile != null) break;
         }
         LogsUtils.info("Invoice Downloaded");
-        return new PaymentPage(driver)
+        return new PaymentPage(driver);
 
     }
+
     @Step("Continue Payment")
-    public HomePage PaymentContinue(){
-        By PlaceOrderButton= By.xpath(paymentContinueButtonLocator);
+    public HomePage PaymentContinue() {
+        By PlaceOrderButton = By.xpath(paymentContinueButtonLocator);
         driver.elementActions().clickElement(PlaceOrderButton);
         LogsUtils.info("pressed on Continue Payment");
         return new HomePage(driver);
     }
-//validations
+
+    //validations
     @Step("Assertion on Payment Confirmation")
-    public HomePage PaymentConfirmation(){
+    public HomePage PaymentConfirmation() {
         By message = By.xpath(paymentMessageAssertionLocator);
         String actualText = driver.elementActions().getText(message);
-        driver.validaions().validateTrue(actualText.contains("confirmed"),"Payment is not confirmed");
+        driver.validaions().validateTrue(actualText.contains("confirmed"), "Payment is not confirmed");
         LogsUtils.info("Assertion on Confirmation");
         return new HomePage(driver);
     }
