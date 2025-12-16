@@ -1,0 +1,24 @@
+{
+  "sign-up-data": {
+    "username": "Tam00ra",
+    "signup-Email": "mohamedTamer123@gmail.com",
+    "password": "Mohamed123",
+    "gender": "male",
+    "First-name": "Mohamed",
+    "Last-name": "Tamer",
+    "Company": "ITI Army",
+    "Address1": "35st Omar Ebn El khatab",
+    "Address2": "Ebad El Rahman City",
+    "birth-date": {
+      "day": "21",
+      "month": "March",
+      "year": "2002"
+    },
+    "Country": "Canada",
+    "state": "Cairo",
+    "City": "Mukkatam",
+    "Zip-code": "12345",
+    "phone-number": "0123456789"
+  }
+}
+
