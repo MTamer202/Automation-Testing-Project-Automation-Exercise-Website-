@@ -5,9 +5,7 @@ import com.AutomationExercise.utils.LogsUtils;
 import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.bidi.log.Log;
-import org.testng.Assert;
+
 
 public class SignUpLoginPage {
 
@@ -20,16 +18,7 @@ public class SignUpLoginPage {
         this.driver = driver;
     }
 
-    /***Variables***/
-    private static final String userName = "Tam00ra";
-    private static final String userGmail = "mohamedTamer123@gmail.com";
-    private static final String validEmail = "mohamedTamer1234@gmail.com";
-    private static final String validPassword = "Mohamed123";
-    private static String userInValidGmail = "mohamedTamer12@gmail.com";
-    private static String userInvalidPassword = "Mohamed12345";
-    private static String expectedSignUpURL = "https://www.automationexercise.com/signup";
-
-    /***Locators***/
+    //locators
     private static final String signUpUsernameLocator = "//input[@data-qa='signup-name']";
     private static final String signUpEmailLocator = "//input[@data-qa='signup-email']";
     private static final String signUpButtonLocator = "//button[@data-qa='signup-button']";
@@ -48,7 +37,7 @@ public class SignUpLoginPage {
     }
 
     @Step("Signup Value Put to register")
-    public SignUpLoginPage SignUpValuePut(String userName, String userGmail) {
+    public SignUpLoginPage signUpValuePut(String userName, String userGmail) {
         /***  Signup/Login Page   ***/
         By signUpTextInput = By.xpath(signUpUsernameLocator);
         driver.elementActions().sendData(signUpTextInput, userName);
@@ -68,7 +57,7 @@ public class SignUpLoginPage {
     }
 
     @Step("Login Value Put to register")
-    public SignUpLoginPage LoginValuePut(String loginEmail, String password) {
+    public SignUpLoginPage loginValuePut(String loginEmail, String password) {
         /***  Signup/Login Page   ***/
         By loginTextInput = By.xpath(loginEmailLocator);
         driver.elementActions().sendData(loginTextInput, loginEmail);
@@ -87,7 +76,7 @@ public class SignUpLoginPage {
 
     //validation
     public SignUpPage validSignUpAssertion() {
-        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(), expectedSignUpURL, "we are not in SignUp Url");
+        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(), PropertiesUtils.getPropertyValue("signupURL"), "we are not in SignUp Url");
         LogsUtils.info("Went to Sign up Page");
         return new SignUpPage(driver);
     }
@@ -110,7 +99,8 @@ public class SignUpLoginPage {
 
     public HomePage invalidSignUpAssertion() {
         By message = By.xpath(assertionExistsMessage);
-        driver.validaions().validateTrue(driver.elementActions().getText(message).contains("Email Address already exist!"),
+        driver.validaions().validateTrue(driver.elementActions().getText(message)
+                        .contains(PropertiesUtils.getPropertyValue("emailAlreadyExists")),
                 "SignUp isn't Failed");
         LogsUtils.info("Email: " + driver.elementActions().getTextfromInput(By.xpath(signUpEmailLocator)) +
                 "is already exists");

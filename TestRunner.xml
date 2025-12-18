@@ -17,7 +17,19 @@
                 <include name="ProductSearch"/>
                 <include name="SubscriptionInHomePage"/>
                 <include name="SubscriptionInCartPage"/>
-
+                <include name="AddToCart"/>
+                <include name="ProductQuantity"/>
+                <include name="PlaceOrderWhileRegister"/>
+                <include name="PlaceOrderAfterRegister"/>
+                <include name="PlaceOrderAfterLogin"/>
+                <include name="RemoveOrderFromCart"/>
+                <include name="CategoryNavigation"/>
+                <include name="BrandNavigation"/>
+                <include name="SearchAndVerifyAfterLogin"/>
+                <include name="ProductReview"/>
+                <include name="RecommendedItems"/>
+                <include name="AddressVerifyInCheckout"/>
+                <include name="DownloadInvoiceAfterPurchase"/>
             </methods>
         </classes>
     </test>

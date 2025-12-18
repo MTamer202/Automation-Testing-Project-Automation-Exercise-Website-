@@ -6,8 +6,7 @@ import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+
 
 import java.io.File;
 
@@ -21,7 +20,7 @@ public class PaymentPage {
         this.driver = driver;
     }
 
-    /***Locators***/
+    //locators
     private static final String messageCommentLocator = "//textarea[@class='form-control']";
     private static final String placeOrderButtonLocator = "//a[normalize-space(text())='Place Order']";
     private static final String nameOnCardLocator = "//input[@name='name_on_card']";
@@ -34,30 +33,29 @@ public class PaymentPage {
     private static final String paymentDownloadInvoiceButtonLocator = "//a[normalize-space(text())='Download Invoice']";
     private static final String paymentContinueButtonLocator = "//a[normalize-space(text())='Continue']";
 
-    /***Variables***/
-    private static final String comment = "Need Order ASAP";
-
+    //navigate
     @Step("Navigate Login Page")
-    public void navigateToHomePage() {
+    public HomePage navigateToHomePage() {
         driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
+        return new HomePage(driver);
     }
-
+    //methods
     @Step("Write Comment In Payment Page")
-    public PaymentPage WriteComment(String comment) {
+    public PaymentPage writeComment(String comment) {
         By message = By.xpath(messageCommentLocator);
         driver.elementActions().sendData(message, comment);
         return new PaymentPage(driver);
     }
 
     @Step("Click on Place Order in Payment Page")
-    public PaymentPage PlaceOrder() {
+    public PaymentPage placeOrder() {
         By PlaceOrderButton = By.xpath(placeOrderButtonLocator);
         driver.elementActions().clickElement(PlaceOrderButton);
         return new PaymentPage(driver);
     }
 
     @Step("Place The Payment Methods in the page")
-    public static void PaymentCardValues(WebDriver webDriver) throws InterruptedException {
+    public static void paymentCardValues(WebDriver webDriver) throws InterruptedException {
         By submitPayment = By.xpath(paymentButtonLocator);
         webDriver.findElement(submitPayment).click();
         LogsUtils.info("Payment Method done ");
@@ -102,7 +100,7 @@ public class PaymentPage {
     }
 
     @Step("Download InVoice")
-    public PaymentPage PaymentDownloadInvoice() {
+    public PaymentPage paymentDownloadInvoice() {
         By DownloadInvoiceButton = By.xpath(paymentDownloadInvoiceButtonLocator);
         driver.elementActions().clickElement(DownloadInvoiceButton);
         LogsUtils.info("Invoice Downloading");
@@ -130,7 +128,7 @@ public class PaymentPage {
     }
 
     @Step("Continue Payment")
-    public HomePage PaymentContinue() {
+    public HomePage paymentContinue() {
         By PlaceOrderButton = By.xpath(paymentContinueButtonLocator);
         driver.elementActions().clickElement(PlaceOrderButton);
         LogsUtils.info("pressed on Continue Payment");
@@ -139,12 +137,12 @@ public class PaymentPage {
 
     //validations
     @Step("Assertion on Payment Confirmation")
-    public HomePage PaymentConfirmation() {
+    public PaymentPage paymentConfirmation() {
         By message = By.xpath(paymentMessageAssertionLocator);
         String actualText = driver.elementActions().getText(message);
         driver.validaions().validateTrue(actualText.contains("confirmed"), "Payment is not confirmed");
         LogsUtils.info("Assertion on Confirmation");
-        return new HomePage(driver);
+        return new PaymentPage(driver);
     }
 }
 

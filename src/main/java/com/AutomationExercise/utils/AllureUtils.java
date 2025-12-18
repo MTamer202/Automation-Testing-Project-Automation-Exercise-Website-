@@ -9,7 +9,6 @@ import static com.AutomationExercise.utils.LogsUtils.Logs_Path;
 
 
 public class AllureUtils {
-//C:\Users\M.TAMER\AppData\Roaming\npm\node_modules\allure-commandline\dist\bin
     public static final String Allure_Results_Path = "test-outputs/allure-results";
     static String Allure_Report_PATH = "test-outputs/allure-report";
     static String USER_Home = System.getProperty("user.home");

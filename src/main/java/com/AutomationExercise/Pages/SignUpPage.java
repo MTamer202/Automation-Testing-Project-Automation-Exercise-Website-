@@ -6,9 +6,6 @@ import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.bidi.log.Log;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.support.ui.Select;
 
 public class SignUpPage {
@@ -20,19 +17,7 @@ public class SignUpPage {
     public SignUpPage(GUIDriver driver) {
         this.driver = driver;
     }
-
-    /***Variables***/
-    private static final String userPassword = "Mohamed123";
-    private static final String userFirstName = "Mohamed";
-    private static final String userLastName = "Tamer";
-    private static final String userCompany = "ITI Army";
-    private static final String userAddress = "35st Mazen Ehab";
-    private static final String userState = "Cairo";
-    private static final String userCity = "El-Mukkatam";
-    private static final String userZipCode = "15715";
-    private static final String userMobileNumber = "01025829140";
-    private static final String SignupConfirmationPage = "https://www.automationexercise.com/account_created";
-    /***Locators***/
+    //locators
     private static final String userPasswordLocator = "//input[@id='password']";
     private static final String birthdayLocator = "//select[@id='days']";
     private static final String birthMonthLocator = "//select[@id='months']";
@@ -49,7 +34,7 @@ public class SignUpPage {
     private static final String userMobileNumberLocator = "//input[@id='mobile_number']";
     private static final String submitButton = "//button[@type='submit']";
 
-    /***Methods***/
+    //methods
     @Step("Navigate Login Page")
     public void navigateToHomePage() {
         driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
@@ -175,16 +160,11 @@ public class SignUpPage {
         return new SignUpPage(driver);
     }
 
-    @Step("Get the user address")
-    public String GetUserAddress() {
-        LogsUtils.info("Got the user name address: " + userAddress);
-        return userAddress;
-    }
-
     //validations
     @Step("verify we go to sign up confirmation page")
     public SignUpConfirmation signUpConfirmationAssertion() {
-        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(), SignupConfirmationPage, "confirmation didn't went successfully");
+        driver.validaions().validateEqual(driver.browserActions().getCurrentURl(), PropertiesUtils.getPropertyValue("SignupConfirmationPage")
+                ,"confirmation didn't went successfully");
         return new SignUpConfirmation(driver);
     }
 

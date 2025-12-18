@@ -5,7 +5,6 @@ import com.AutomationExercise.utils.LogsUtils;
 import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class HomePage {
 
@@ -41,15 +40,14 @@ public class HomePage {
     private static final String homePageCategoryMenTshirtAssertionLocator = "//h2[@class ='title text-center']";
     private static final String homePageRecommendedItemsAssertionLocator = "//*[normalize-space(text())='recommended items']";
     private static final String homePageRecommendedItemsLocator = "//div[@class='recommended_items']/div/div/div/div/div/div/div/a";
-    //methods
 
-    /***Methods***/
     //navigation
     @Step("Navigate Login Page")
     public void navigateToHomePage() {
         driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
     }
 
+    //methods
     @Step("Click on Home Page")
     public HomePage getHomePage() {
         By homeNavButton = By.xpath(homePageButtonLocator);
@@ -130,17 +128,16 @@ public class HomePage {
         return new HomePage(driver);
     }
 
-    //verify
     @Step("Add a Product {productNumber} to the cart")
-    public HomePage AddToCartProduct(String productNumber) {
+    public ProductsPage addToCartProduct(String productNumber) {
         By addToCartProductButton = By.xpath(productAddToCartLocatorPart1 + productNumber + "\"]");
         driver.elementActions().clickElement(addToCartProductButton);
         LogsUtils.info("Added a product to cart");
-        return new HomePage(driver);
+        return new ProductsPage(driver);
     }
 
     @Step("Click on Women Category")
-    public HomePage HomePageCategoryWomen() {
+    public HomePage homePageCategoryWomen() {
         By womenButton = By.xpath(homePageCategoryWomenLocator);
         driver.elementActions().clickElement(womenButton);
         LogsUtils.info("Women Category clicked home page");
@@ -148,7 +145,7 @@ public class HomePage {
     }
 
     @Step("Click on Dress in Women Category")
-    public HomePage HomePageCategoryWomenDress() {
+    public HomePage homePageCategoryWomenDress() {
         By dressButton = By.xpath(homePageCategoryWomenDressLocator);
         driver.elementActions().clickElement(dressButton);
         LogsUtils.info("Women Category Dress clicked home page");
@@ -156,7 +153,7 @@ public class HomePage {
     }
 
     @Step("Click on Men Category")
-    public HomePage HomePageCategoryMen() {
+    public HomePage homePageCategoryMen() {
         By menButton = By.xpath(homePageCategoryMenLocator);
         driver.elementActions().clickElement(menButton);
         LogsUtils.info("Men Category clicked home page");
@@ -164,7 +161,7 @@ public class HomePage {
     }
 
     @Step("Click on T-shirt in Men Category")
-    public HomePage HomePageCategoryMenTshirt() {
+    public HomePage homePageCategoryMenTshirt() {
         By tshirtButton = By.xpath(homePageCategoryMenTshirtLocator);
         driver.elementActions().clickElement(tshirtButton);
         LogsUtils.info("Men Category T-shirt clicked home page");
@@ -172,22 +169,21 @@ public class HomePage {
     }
 
     @Step("Click on Recommended Items")
-    public HomePage HomePageRecommendedItemsclick() {
+    public HomePage homePageRecommendedItemsclick() {
         driver.elementActions().scrollToElement(By.xpath(homePageRecommendedItemsAssertionLocator));
         return new HomePage(driver);
     }
 
     @Step("Click on a Recommended Item")
-    //verify
-    public HomePage HomePageCategoryRecommendedItems() {
+    public ProductsPage homePageCategoryRecommendedItems() {
         driver.elementActions().clickElement(By.xpath(homePageRecommendedItemsLocator));
         LogsUtils.info("Recommended Item is chosen in home page");
-        return new HomePage(driver);
+        return new ProductsPage(driver);
     }
 
     //validations
     @Step("Assertion on Home Page")
-    public HomePage HomePageCategoryAssertion() {
+    public HomePage homePageCategoryAssertion() {
         By message = By.xpath(homePageCategoryAssertionLocator);
         driver.validaions().validateTrue(driver.elementActions().getText(message).contains("CATEGORY"), "Category Page isn't shown");
         LogsUtils.info("Category Assertion In home page");
@@ -195,7 +191,7 @@ public class HomePage {
     }
 
     @Step("Assert on T-shirt in Men Category")
-    public HomePage HomePageCategoryMenTshirtAssertion(WebDriver webDriver) {
+    public HomePage homePageCategoryMenTshirtAssertion() {
         By message = By.xpath(homePageCategoryMenTshirtAssertionLocator);
         driver.validaions().validateTrue(driver.elementActions().getText(message).contains("MEN"), "Men Category Page isn't shown");
         LogsUtils.info("Men Category T-shirt Assertion in home page");
@@ -203,7 +199,7 @@ public class HomePage {
     }
 
     @Step("Assert on Dress in Women Category")
-    public HomePage HomePageCategoryWomenDressAssertion(WebDriver webDriver) {
+    public HomePage homePageCategoryWomenDressAssertion() {
         By message = By.xpath(homePageCategoryWomenDressAssertionLocator);
         driver.validaions().validateTrue(driver.elementActions().getText(message).contains("WOMEN -"), "Women Category Page isn't shown");
         LogsUtils.info("Women Category dress Assertion in Home page");
@@ -211,7 +207,7 @@ public class HomePage {
     }
 
     @Step("Verify on Recommended Items")
-    public HomePage HomePageRecommendedItemsAssertion() {
+    public HomePage homePageRecommendedItemsAssertion() {
         By message = By.xpath(homePageRecommendedItemsAssertionLocator);
         driver.validaions().validateTrue((driver.elementActions().getText(message).contains("RECOMMENDED")), "recommended isn't shown");
         LogsUtils.info("Recommended Items visiable in home page");

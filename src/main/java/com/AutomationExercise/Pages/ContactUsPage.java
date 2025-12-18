@@ -6,9 +6,6 @@ import com.AutomationExercise.utils.PropertiesUtils;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +20,7 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
-    /***Locators***/
+    //locators
     private static final String getInTouchNameLocator = "//input[@placeholder = 'Name']";
     private static final String getInTouchEmailLocator = "//input[@placeholder = 'Email']";
     private static final String getInTouchSubjectLocator = "//input[@placeholder = 'Subject']";
@@ -33,14 +30,7 @@ public class ContactUsPage {
     private static final String secondPagemessageLocator = "//div[@class ='status alert alert-success']";
     private static final String secondPageHomeButtonLocator = "//*[@class = 'btn btn-success']";
 
-    /***Variables***/
-    private static final String name = "Mohamed";
-    private static final String email = "mohamedTamer1235@gmail.com";
-    private static final String subject = "Automaion Testing";
-    private static final String message = "Hello I am Tamer and I am Trying to find peace";
-    private static final String filePath = "E:\\study\\ITI content\\automation\\Graduation_Project\\Me.pdf";
-    private static final String assertionMessage = "Success! Your details have been submitted successfully.";
-
+    //methods
     @Step("Navigate Login Page")
     public void navigateToHomePage() {
         driver.browserActions().navigateToURl(PropertiesUtils.getPropertyValue("baseURL"));
@@ -75,7 +65,7 @@ public class ContactUsPage {
     }
 
     @Step("pressing Button to upload file")
-    public ContactUsPage UploadingFile(String filePath) {
+    public ContactUsPage uploadingFile(String filePath) {
         By getInTouchUploadButton = By.xpath(getInTouchChooseFileButtonLocator);
         Path path = Paths.get(filePath);
         String absolutePath = path.toAbsolutePath().toString();
@@ -97,10 +87,10 @@ public class ContactUsPage {
 
     //validations
     @Step("Assert on contact us form")
-    public HomePage ContactUsAssertions() {
+    public HomePage contactUsAssertions() {
         By message = By.xpath(secondPagemessageLocator);
         String actualText = driver.elementActions().getText(message);
-        driver.validaions().validateTrue(actualText.contains(assertionMessage), "Contact us page didnt go well");
+        driver.validaions().validateTrue(actualText.contains(PropertiesUtils.getPropertyValue("successfullySubmitted")), "Contact us page didnt go well");
         LogsUtils.info("Assert on a Successfully submit");
         By contactUsHomeButton = By.xpath(secondPageHomeButtonLocator);
         driver.elementActions().clickElement(contactUsHomeButton);

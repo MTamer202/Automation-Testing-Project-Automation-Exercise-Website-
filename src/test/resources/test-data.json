@@ -25,7 +25,36 @@
     "valid-password": "Mohamed123",
     "invalid-email": "mohamedTamer321@gmail.com",
     "invalid-password": "password"
+  },
+  "contact-us": {
+    "subject": "Automaion Testing",
+    "message": "Hello I am Tamer and I am Trying to find peace.",
+    "file-path" : "Me.pdf"
+  },
+  "products":{
+    "first-product-id":"1",
+    "second-product-id": "2",
+    "first-product-name": "Blue top",
+    "quantity": "4",
+    "brands": {
+      "first-brand-id":"1",
+      "second-brand-id": "2"
+    }
+  },
+  "payment": {
+    "name": "Mohamed",
+    "card-number": "11223344",
+    "card-CVC": "123",
+    "expiry-month": "03",
+    "expiry-year": "2030",
+    "comment": "need Order ASAP"
+  },
+  "review": {
+    "name": "Mohamed",
+    "email": "MohamedTamer@gmail.com",
+    "review-content": "It's very good :) "
   }
+
 }
 
 
