@@ -21,14 +21,14 @@ public class ContactUsPage {
     }
 
     //locators
-    private static final String getInTouchNameLocator = "//input[@placeholder = 'Name']";
-    private static final String getInTouchEmailLocator = "//input[@placeholder = 'Email']";
-    private static final String getInTouchSubjectLocator = "//input[@placeholder = 'Subject']";
-    private static final String getInTouchMessageLocator = "//*[@id = 'message']";
-    private static final String getInTouchChooseFileButtonLocator = "//*[@type= 'file']";
-    private static final String getInTouchSubmitButtonLocator = "//*[@name= 'submit']";
-    private static final String secondPagemessageLocator = "//div[@class ='status alert alert-success']";
-    private static final String secondPageHomeButtonLocator = "//*[@class = 'btn btn-success']";
+    private static final By getInTouchNameLocator =By.xpath( "//input[@placeholder = 'Name']");
+    private static final By getInTouchEmailLocator =By.xpath( "//input[@placeholder = 'Email']");
+    private static final By getInTouchSubjectLocator =By.xpath( "//input[@placeholder = 'Subject']");
+    private static final By getInTouchMessageLocator =By.xpath( "//*[@id = 'message']");
+    private static final By getInTouchChooseFileButtonLocator =By.xpath( "//*[@type= 'file']");
+    private static final By getInTouchSubmitButtonLocator =By.xpath( "//*[@name= 'submit']");
+    private static final By secondPagemessageLocator =By.xpath( "//div[@class ='status alert alert-success']");
+    private static final By secondPageHomeButtonLocator =By.xpath( "//*[@class = 'btn btn-success']");
 
     //methods
     @Step("Navigate Login Page")
@@ -38,46 +38,40 @@ public class ContactUsPage {
 
     @Step("Putting Name in Contact us")
     public ContactUsPage puttingName(String name) {
-        By getInTouchName = By.xpath(getInTouchNameLocator);
-        driver.elementActions().sendData(getInTouchName, name);
+        driver.elementActions().sendData(getInTouchNameLocator, name);
         return new ContactUsPage(driver);
     }
 
     @Step("Putting Email in Contact us")
     public ContactUsPage puttingEmail(String email) {
-        By getInTouchName = By.xpath(getInTouchEmailLocator);
-        driver.elementActions().sendData(getInTouchName, email);
+        driver.elementActions().sendData(getInTouchEmailLocator, email);
         return new ContactUsPage(driver);
     }
 
     @Step("Putting Subject in Contact us")
     public ContactUsPage puttingSubject(String subject) {
-        By getInTouchName = By.xpath(getInTouchSubjectLocator);
-        driver.elementActions().sendData(getInTouchName, subject);
+        driver.elementActions().sendData(getInTouchSubjectLocator, subject);
         return new ContactUsPage(driver);
     }
 
     @Step("Putting Message in Contact us")
     public ContactUsPage puttingMessageInGetInTouch(String message) {
-        By getInTouchName = By.xpath(getInTouchMessageLocator);
-        driver.elementActions().sendData(getInTouchName, message);
+        driver.elementActions().sendData(getInTouchMessageLocator, message);
         return new ContactUsPage(driver);
     }
 
     @Step("pressing Button to upload file")
     public ContactUsPage uploadingFile(String filePath) {
-        By getInTouchUploadButton = By.xpath(getInTouchChooseFileButtonLocator);
         Path path = Paths.get(filePath);
         String absolutePath = path.toAbsolutePath().toString();
-        driver.elementActions().sendData(getInTouchUploadButton, absolutePath);
+        driver.elementActions().sendData(getInTouchChooseFileButtonLocator, absolutePath);
         LogsUtils.info("file path: " + filePath + " and absolutePath: " + absolutePath);
         return new ContactUsPage(driver);
     }
 
     @Step("Click on submit the Message in Contact us")
     public ContactUsPage clickSubmit() {
-        By contactUsSubmitButton = By.xpath(getInTouchSubmitButtonLocator);
-        driver.elementActions().clickElement(contactUsSubmitButton);
+        driver.elementActions().clickElement(getInTouchSubmitButtonLocator);
         LogsUtils.info("Picture was Putted Successfully");
         Alert alert = GUIDriver.getInstance().switchTo().alert();
         alert.accept();
@@ -88,12 +82,10 @@ public class ContactUsPage {
     //validations
     @Step("Assert on contact us form")
     public HomePage contactUsAssertions() {
-        By message = By.xpath(secondPagemessageLocator);
-        String actualText = driver.elementActions().getText(message);
+        String actualText = driver.elementActions().getText(secondPagemessageLocator);
         driver.validaions().validateTrue(actualText.contains(PropertiesUtils.getPropertyValue("successfullySubmitted")), "Contact us page didnt go well");
         LogsUtils.info("Assert on a Successfully submit");
-        By contactUsHomeButton = By.xpath(secondPageHomeButtonLocator);
-        driver.elementActions().clickElement(contactUsHomeButton);
+        driver.elementActions().clickElement(secondPageHomeButtonLocator);
         return new HomePage(driver);
     }
 

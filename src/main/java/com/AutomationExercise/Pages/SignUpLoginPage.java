@@ -19,16 +19,16 @@ public class SignUpLoginPage {
     }
 
     //locators
-    private static final String signUpUsernameLocator = "//input[@data-qa='signup-name']";
-    private static final String signUpEmailLocator = "//input[@data-qa='signup-email']";
-    private static final String signUpButtonLocator = "//button[@data-qa='signup-button']";
+    private static final By signUpUsernameLocator =By.xpath("//input[@data-qa='signup-name']");
+    private static final By signUpEmailLocator =By.xpath("//input[@data-qa='signup-email']");
+    private static final By signUpButtonLocator =By.xpath("//button[@data-qa='signup-button']");
 
-    private static final String loginEmailLocator = "//input[@type='email']";
-    private static final String loginPasswordLocator = "//input[@type='password']";
-    private static final String loginButtonLocator = "//button[normalize-space(text())='Login']";
-    private static final String assertionIncorrectMessage = "//*[normalize-space(text())='Your email or password is incorrect!']";
-    private static final String assertionExistsMessage = "//*[normalize-space(text())='Email Address already exist!']";
-    private static final String assertionLoginAs = "//a[text() =' Logged in as ']";
+    private static final By loginEmailLocator =By.xpath("//input[@type='email']");
+    private static final By loginPasswordLocator =By.xpath("//input[@type='password']");
+    private static final By loginButtonLocator =By.xpath("//button[normalize-space(text())='Login']");
+    private static final By assertionIncorrectMessage =By.xpath("//*[normalize-space(text())='Your email or password is incorrect!']");
+    private static final By assertionExistsMessage =By.xpath("//*[normalize-space(text())='Email Address already exist!']");
+    private static final By assertionLoginAs =By.xpath("//a[text() =' Logged in as ']");
 
 
     @Step("Navigate Login Page")
@@ -39,19 +39,16 @@ public class SignUpLoginPage {
     @Step("Signup Value Put to register")
     public SignUpLoginPage signUpValuePut(String userName, String userGmail) {
         /***  Signup/Login Page   ***/
-        By signUpTextInput = By.xpath(signUpUsernameLocator);
-        driver.elementActions().sendData(signUpTextInput, userName);
+        driver.elementActions().sendData(signUpUsernameLocator, userName);
         LogsUtils.info("username: " + userName + " is added");
-        By signUpEmail = By.xpath(signUpEmailLocator);
-        driver.elementActions().sendData(signUpEmail, userGmail);
+        driver.elementActions().sendData(signUpEmailLocator, userGmail);
         LogsUtils.info("Gmail: " + userGmail + " is added");
         return new SignUpLoginPage(driver);
     }
 
     @Step("click on sign up button")
     public SignUpLoginPage clickOnSignButton() {
-        By signUpNavButton = By.xpath(signUpButtonLocator);
-        driver.elementActions().clickElement(signUpNavButton);
+        driver.elementActions().clickElement(signUpButtonLocator);
         LogsUtils.info("signUp value was Put and signUp Button was clicked");
         return new SignUpLoginPage(driver);
     }
@@ -59,17 +56,14 @@ public class SignUpLoginPage {
     @Step("Login Value Put to register")
     public SignUpLoginPage loginValuePut(String loginEmail, String password) {
         /***  Signup/Login Page   ***/
-        By loginTextInput = By.xpath(loginEmailLocator);
-        driver.elementActions().sendData(loginTextInput, loginEmail);
-        By loginPassword = By.xpath(loginPasswordLocator);
-        driver.elementActions().sendData(loginPassword, password);
+        driver.elementActions().sendData(loginEmailLocator, loginEmail);
+        driver.elementActions().sendData(loginPasswordLocator, password);
         return new SignUpLoginPage(driver);
     }
 
     @Step("click on login")
     public SignUpLoginPage clickOnLogin() {
-        By loginNavButton = By.xpath(loginButtonLocator);
-        driver.elementActions().clickElement(loginNavButton);
+        driver.elementActions().clickElement(loginButtonLocator);
         LogsUtils.info("login value was Put and signUp Button was clicked");
         return new SignUpLoginPage(driver);
     }
@@ -82,27 +76,25 @@ public class SignUpLoginPage {
     }
 
     public HomePage validLoginAssertion() {
-        driver.validaions().validateTrue(driver.elementActions().getText(By.xpath(assertionLoginAs)).contains("Logged in as"), "we are not in SignUp Url");
+        driver.validaions().validateTrue(driver.elementActions().getText(assertionLoginAs).contains("Logged in as"), "we are not in SignUp Url");
         LogsUtils.info("Valid Login");
         return new HomePage(driver);
     }
 
     public HomePage invalidLoginAssertion() {
-        By message = By.xpath(assertionIncorrectMessage);
-        driver.validaions().validateTrue(driver.elementActions().getText(message).contains("incorrect"),
+        driver.validaions().validateTrue(driver.elementActions().getText(assertionIncorrectMessage).contains("incorrect"),
                 "Login isn't Failed");
-        LogsUtils.info("Email:" + driver.elementActions().getTextfromInput(By.xpath(loginEmailLocator)) +
-                "or Password: " + driver.elementActions().getTextfromInput(By.xpath(loginPasswordLocator)) +
+        LogsUtils.info("Email:" + driver.elementActions().getTextfromInput(loginEmailLocator) +
+                "or Password: " + driver.elementActions().getTextfromInput(loginPasswordLocator) +
                 "is incorecct");
         return new HomePage(driver);
     }
 
     public HomePage invalidSignUpAssertion() {
-        By message = By.xpath(assertionExistsMessage);
-        driver.validaions().validateTrue(driver.elementActions().getText(message)
+        driver.validaions().validateTrue(driver.elementActions().getText(assertionExistsMessage)
                         .contains(PropertiesUtils.getPropertyValue("emailAlreadyExists")),
                 "SignUp isn't Failed");
-        LogsUtils.info("Email: " + driver.elementActions().getTextfromInput(By.xpath(signUpEmailLocator)) +
+        LogsUtils.info("Email: " + driver.elementActions().getTextfromInput(signUpEmailLocator) +
                 "is already exists");
         return new HomePage(driver);
     }

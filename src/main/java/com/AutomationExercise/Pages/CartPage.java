@@ -17,16 +17,17 @@ public class CartPage {
     }
 
     //locators
-    private static final String homePageSubscriptionAssertionLocator = "//h2[text()='Subscription']";
-    private static final String homePageSubscriptionEmailLocator = "//input[@id='susbscribe_email']";
-    private static final String homePageSubscriptionArrowButtonLocator = "//button[@id='subscribe']";
-    private static final String homePageSubscriptionSuccessfullyAssertionLocator = "//*[normalize-space(text())='You have been successfully subscribed!']";
-    private static final String cartCheckoutButtonLocator = "//*[normalize-space(text())='Proceed To Checkout']";
-    private static final String cartRegisterSignupButtonLocator = "//*[normalize-space(text())='Register / Login']";
-    private static final String cartRemoveItemsButtonLocator = "//a[@data-product-id='";
-    private static final String cartDeliveryAddressLocator = "//ul[@id = 'address_delivery']";
-    private static final String cartBillingAddressLocator = "//ul[@id = 'address_invoice']";
+    private static final By homePageSubscriptionAssertionLocator =By.xpath( "//h2[text()='Subscription']");
+    private static final By homePageSubscriptionEmailLocator =By.xpath( "//input[@id='susbscribe_email']");
+    private static final By homePageSubscriptionArrowButtonLocator =By.xpath( "//button[@id='subscribe']");
+    private static final By homePageSubscriptionSuccessfullyAssertionLocator =By.xpath( "//*[normalize-space(text())='You have been successfully subscribed!']");
+    private static final By cartCheckoutButtonLocator =By.xpath( "//*[normalize-space(text())='Proceed To Checkout']");
+    private static final By cartRegisterSignupButtonLocator =By.xpath( "//*[normalize-space(text())='Register / Login']");
+    private static final By cartDeliveryAddressLocator =By.xpath( "//ul[@id = 'address_delivery']");
+    private static final By cartBillingAddressLocator =By.xpath( "//ul[@id = 'address_invoice']");
+
     private static final String productQuantityAssertionLocatorPart1 = "//button[text()='";
+    private static final String cartRemoveItemsButtonLocator = "//a[@data-product-id='";
 
 
     //methods
@@ -38,31 +39,27 @@ public class CartPage {
 
     @Step("SUBSCRIPTION Email In Cart Page")
     public CartPage subscriptionEmail(String email) {
-        By subscriptionEmail = By.xpath(homePageSubscriptionEmailLocator);
-        driver.elementActions().sendData(subscriptionEmail, email);
+        driver.elementActions().sendData(homePageSubscriptionEmailLocator, email);
         return new CartPage(driver);
     }
 
     @Step("Confirm Email Subescription")
     public CartPage clickOnArrowOfSubscription() {
-        By subscriptionArrow = By.xpath(homePageSubscriptionArrowButtonLocator);
-        driver.elementActions().clickElement(subscriptionArrow);
+        driver.elementActions().clickElement(homePageSubscriptionArrowButtonLocator);
         LogsUtils.info("email is written and the subscription Arrow is clicked");
         return new CartPage(driver);
     }
 
     @Step("Click on checkout in Cart Page")
     public CartPage cartCheckout() {
-        By checkoutButton = By.xpath(cartCheckoutButtonLocator);
-        driver.elementActions().clickElement(checkoutButton);
+        driver.elementActions().clickElement(cartCheckoutButtonLocator);
         LogsUtils.info("Checkout button is clicked");
         return new CartPage(driver);
     }
 
     @Step("Click on Login in CartPage")
     public SignUpLoginPage cartCheckoutLogin() {
-        By loginButton = By.xpath(cartRegisterSignupButtonLocator);
-        driver.elementActions().clickElement(loginButton);
+        driver.elementActions().clickElement(cartRegisterSignupButtonLocator);
         LogsUtils.info("Login button is clicked in checkout scenario");
         return new SignUpLoginPage(driver);
     }
@@ -78,8 +75,7 @@ public class CartPage {
     //validations
     @Step("Verify The Subscription in Cart Page")
     public CartPage subscriptionEmailLocationAssertion() {
-        By message = By.xpath(homePageSubscriptionAssertionLocator);
-        driver.validaions().validateTrue((driver.elementActions().getText(message)).contains(PropertiesUtils.getPropertyValue("subscription")),
+        driver.validaions().validateTrue((driver.elementActions().getText(homePageSubscriptionAssertionLocator)).contains(PropertiesUtils.getPropertyValue("subscription")),
                 "Subscription is not shown");
         LogsUtils.info("SUBSCRIPTION verified");
         return new CartPage(driver);
@@ -87,16 +83,14 @@ public class CartPage {
 
     @Step("Verify The Subscription is successfully done")
     public CartPage subscriptionEmailSuccessfullyAssertion() {
-        By SuccessfulMessage = By.xpath(homePageSubscriptionSuccessfullyAssertionLocator);
-        driver.validaions().validateTrue((driver.elementActions().getText(SuccessfulMessage)).contains(PropertiesUtils.getPropertyValue("successfullySubscribed")), "Subscription is not done successfully");
+        driver.validaions().validateTrue((driver.elementActions().getText(homePageSubscriptionSuccessfullyAssertionLocator)).contains(PropertiesUtils.getPropertyValue("successfullySubscribed")), "Subscription is not done successfully");
         LogsUtils.info("successfully subscribed In Cart Page");
         return new CartPage(driver);
     }
 
     @Step("Verify the Delivery address in Cart Page")
     public CartPage cartDeliveryAddressVerifyAssertion(String address) {
-        By message = By.xpath(cartDeliveryAddressLocator);
-        driver.validaions().validateTrue((driver.elementActions().getText(message)).contains(address), "Address doesn't match ");
+        driver.validaions().validateTrue((driver.elementActions().getText(cartDeliveryAddressLocator)).contains(address), "Address doesn't match ");
         LogsUtils.info("Delivery address is correct");
         return new CartPage(driver);
     }

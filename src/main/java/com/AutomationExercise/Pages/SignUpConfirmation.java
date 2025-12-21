@@ -18,7 +18,7 @@ public class SignUpConfirmation {
     }
 
     //locaters
-    private static final String confirmationButtonLocator = "//*[@data-qa='continue-button']";
+    private static final By confirmationButtonLocator =By.xpath("//*[@data-qa='continue-button']");
 
     //methods
     @Step("Navigate Login Page")
@@ -28,8 +28,7 @@ public class SignUpConfirmation {
 
     @Step("confirmation on the registration we made")
     public HomePage registrationConfirmation() {
-        By signUpContinueButton = By.xpath(confirmationButtonLocator);
-        driver.elementActions().clickElement(signUpContinueButton);
+        driver.elementActions().clickElement(confirmationButtonLocator);
         LogsUtils.info("registration success");
         return new HomePage(driver);
     }

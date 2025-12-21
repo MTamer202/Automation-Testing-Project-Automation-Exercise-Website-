@@ -18,7 +18,7 @@ public class DeleteConfirmation {
 
 
     //locators
-    private static final String confirmationButtonLocator = "//*[@data-qa='continue-button']";
+    private static final By confirmationButtonLocator =By.xpath( "//*[@data-qa='continue-button']");
 
     //methods
        @Step("Navigate Login Page")
@@ -28,8 +28,7 @@ public class DeleteConfirmation {
 
     @Step("Confirmation Page on Delete Account ")
     public HomePage deleteAccountConfirmation() {
-        By deleteAccountConfirmationButton = By.xpath(confirmationButtonLocator);
-        driver.elementActions().clickElement(deleteAccountConfirmationButton);
+        driver.elementActions().clickElement(confirmationButtonLocator);
         LogsUtils.info("Account Deleted Successfully");
         return new HomePage(driver);
     }
