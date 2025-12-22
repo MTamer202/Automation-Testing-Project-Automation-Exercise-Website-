@@ -20,6 +20,26 @@ public class E2E {
     GUIDriver driver;
     JsonUtils testData;
     String browserName;
+
+    //configurations
+    @BeforeMethod
+    public void beforeClass() {
+        browserName = PropertiesUtils.getPropertyValue("browserType");
+        LogsUtils.info(browserName);
+        driver = new GUIDriver(browserName);
+        testData = new JsonUtils("test-data");
+        LogsUtils.info(browserName + " is Opened Successfully");
+        new HomePage(driver).navigateToHomePage();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.browserActions().closeBrowser();
+        // CustomSoftAssertion.customAssertAll();
+
+    }
+
+    //tests
     @Test(description = "TC-01: Signup with new email")
     @Story("Good scenario - Signup/Login Page")
     @Description("Verify that the email is made and then delete it")
@@ -463,21 +483,5 @@ public class E2E {
                 .deleteAccountConfirmation();
     }
 
-//configurations
-@BeforeMethod
-public void beforeClass() {
-    browserName = PropertiesUtils.getPropertyValue("browserType");
-    LogsUtils.info(browserName);
-    driver = new GUIDriver(browserName);
-    testData = new JsonUtils("test-data");
-    LogsUtils.info(browserName + " is Opened Successfully");
-    new HomePage(driver).navigateToHomePage();
-}
 
-@AfterMethod
-public void tearDown() {
-    driver.browserActions().closeBrowser();
-    // CustomSoftAssertion.customAssertAll();
-
-}
 }
